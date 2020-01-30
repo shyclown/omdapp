@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0fb08ba2-1598-4317-a5cb-7338b84238ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/UniversalPanel.js" afterDir="false" />
+    <list default="true" id="0fb08ba2-1598-4317-a5cb-7338b84238ca" name="Default Changelist" comment="init">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +21,9 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="0fcfdad4-613c-4186-a1d7-62990da28ebf" />
   </component>
   <component name="ProjectId" id="1X54sndo9EedQ1JVtoyL9imZenn" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -84,16 +79,36 @@
       <workItem from="1580322832373" duration="15249000" />
       <workItem from="1580402815012" duration="854000" />
     </task>
+    <task id="LOCAL-00001" summary="init">
+      <created>1580404749953</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1580404749953</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init" />
+    <option name="LAST_COMMIT_MESSAGE" value="init" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="399" y="504" key="Github.Dialog.Accounts.Choose" timestamp="1580403242605">
+    <state x="168" y="175" key="CommitChangelistDialog2" timestamp="1580404779944">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state x="399" y="504" key="Github.Dialog.Accounts.Choose/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1580403242605" />
+    <state x="168" y="175" key="CommitChangelistDialog2/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1580404779944" />
+    <state x="0" y="104" key="DiffContextDialog" timestamp="1580404776971">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state x="0" y="104" key="DiffContextDialog/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1580404776971" />
+    <state x="399" y="504" key="Github.Dialog.Accounts.Choose" timestamp="1580404618616">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state x="399" y="504" key="Github.Dialog.Accounts.Choose/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1580404618616" />
     <state width="914" height="320" key="GridCell.Tab.0.bottom" timestamp="1580323403122">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
@@ -114,13 +129,17 @@
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
     <state x="40" y="223" key="SettingsEditor/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1580402885771" />
-    <state x="131" y="314" key="Vcs.Push.Dialog.v2" timestamp="1580403225906">
+    <state x="131" y="314" key="Vcs.Push.Dialog.v2" timestamp="1580404751856">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state x="131" y="314" key="Vcs.Push.Dialog.v2/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1580403225906" />
+    <state x="131" y="314" key="Vcs.Push.Dialog.v2/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1580404751856" />
     <state x="235" y="405" key="com.intellij.ide.util.TipDialog" timestamp="1580402965428">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
     <state x="235" y="405" key="com.intellij.ide.util.TipDialog/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1580402965428" />
+    <state x="324" y="294" key="git4idea.branch.GitSmartOperationDialog" timestamp="1580404731215">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state x="324" y="294" key="git4idea.branch.GitSmartOperationDialog/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1580404731215" />
   </component>
 </project>
