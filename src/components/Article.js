@@ -18,9 +18,9 @@ class Article extends React.Component{
     render(){
         return <Card>
             <CardHeader
-                disableTypography={false}
-                title={<span style={{fontWeight: 500}}>Header</span>}
-                subheader={'Subheader'}
+                disableTypography={true}
+                title={<Typography variant={'h5'} style={{fontWeight: 500}}>Header</Typography>}
+                subheader={<Typography variant={'subtitle'} color={'secondary'}>Subheader</Typography>}
             />
 
             <CardContent>

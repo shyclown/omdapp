@@ -6,8 +6,19 @@ import {SidePanel} from "../side";
 import Article from "../../components/Article";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
+import useTheme from "@material-ui/core/styles/useTheme";
+import Divider from "@material-ui/core/Divider";
+import Grid from "@material-ui/core/Grid";
+import Paper from "@material-ui/core/Paper";
+import Card from "@material-ui/core/Card";
+
 
 const useStyles = makeStyles((theme) => createStyles({
+    divider: {
+      backgroundColor: theme.palette.secondary.light,
+
+
+    },
     contentItem: {
         display: 'flex',
         // backgroundColor:'#444',
@@ -73,18 +84,32 @@ export const Content = (props) => {
 };
 
 export const ContentWrap = () => {
+    const classNames = useStyles();
   return             <div style={{flexGrow: 1}}>
-      <Article/>
-      <Toolbar>
-          <Typography>Divide</Typography>
-      </Toolbar>
-      <ContentItemDateSeparator date={'28.1.2020'}/>
-      <ContentItem/>
-      <ContentItem/>
-      <ContentItemDateSeparator date={'27.1.2020'}/>
-      <ContentItem/>
-      <ContentItem hasImage/>
-      <ContentItem/>
+      <Grid container spacing={1}>
+        <Grid item>
+              <Article/>
+        </Grid>
+          <Grid item xs={12} >
+          <Card className={classNames.divider}>
+              <Toolbar variant={'dense'}>
+                  28.1.2020
+              </Toolbar>
+          </Card>
+
+          </Grid>
+          <Grid item>
+              <Article/>
+          </Grid>
+          <Grid item>
+              <Article/>
+          </Grid>
+          <Grid item>
+              <Article/>
+          </Grid>
+
+      </Grid>
+
 
   </div>
 };

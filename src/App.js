@@ -26,10 +26,11 @@ function App() {
             <ThemeProvider theme={theme}>
         <div style={{height: '100vh', backgroundColor: '#666'}}>
 
-            <UniversalPanel singlePanel
+            <UniversalPanel
+                singlePanel
                 toolbar={<TopBar/>}
                 content={
-                    <div>
+                    <div style={{ backgroundColor: '#eeeeee'}}>
                         <Redirect to={createLink(links[0])}/>
                     { links.map( (link, i) =>
                         <Route key={i} path={'/'+createLink(link)}>

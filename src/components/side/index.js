@@ -1,6 +1,16 @@
 import React from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {createStyles} from "@material-ui/core";
+import {createStyles, isWidthDown} from "@material-ui/core";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import List from "@material-ui/core/List";
+import ListItemText from "@material-ui/core/ListItemText";
+import ListItem from "@material-ui/core/ListItem";
+import ListSubheader from "@material-ui/core/ListSubheader";
+import Typography from "@material-ui/core/Typography";
+import Grid from "@material-ui/core/Grid";
+import withWidth from "@material-ui/core/withWidth";
+import {compose} from "redux";
 
 const useStyles = makeStyles((theme) => createStyles({
     sidePanelItemsLink: {
@@ -35,8 +45,13 @@ const SidePanelItemLink = (props) => {
     return <div className={classNames.sidePanelItemsLink}>{props.label}</div>
 };
 
-export const SidePanel = (props) => {
+export const SidePanel = compose(withWidth())(
+    (props) => {
+
+    const xs = isWidthDown('xs', props.width);
     const classNames = useStyles();
+
+    if(xs) { return null; }
     return <div
         style={{
             minWidth: '200px',
@@ -44,39 +59,122 @@ export const SidePanel = (props) => {
             marginLeft: '36px',
         }}
     >
+        <Grid container spacing={1}>
+            <Grid item xs={12}>
+                <Card>
 
-        <div
+                    <List
+                        subheader={
+                            <ListSubheader
+                                component="div"
+                            >
+                                Informacie
+                            </ListSubheader>}
+                    >
+                        <ListItem button>
+                            <Typography>
+                                Novinky
+                            </Typography>
+                        </ListItem>
+                        <ListItem button>
+                            <Typography>
+                                Archiv
+                            </Typography>
+                        </ListItem>
+                    </List>
 
-        >
-            <SidePanelItemsLabel label={'Informacie'}/>
-            <SidePanelItemLink label={'Novinky'}/>
-            <SidePanelItemLink label={'Archiv'}/>
-        </div>
 
-        <div
+                </Card>
+            </Grid>
 
-        >
-            <SidePanelItemsLabel label={'Sachy'}/>
-            <SidePanelItemLink label={'Zahraj si'}/>
-            <SidePanelItemLink label={'Sachove videa'}/>
-            <SidePanelItemLink label={'Nasi sachisti'}/>
-            <SidePanelItemLink label={'Historia klubu'}/>
-            <SidePanelItemLink label={'Odkazy'}/>
-        </div>
+            <Grid item xs={12}>
+                <Card>
 
-        <div
+                    <List
+                        subheader={
+                            <ListSubheader
+                                component="div"
+                            >
+                                Sachy
+                            </ListSubheader>}
+                    >
+                        {
+                            [
+                                'Zahraj si',
+                                'Sachove videa',
+                                'Nasi Sachisti',
+                                'Historia klubu',
+                                'Odkazy'
+                            ].map(link => <ListItem button>
+                                <ListItemText primary={link}/>
+                            </ListItem>)
+                        }
 
-        >
-            <SidePanelItemsLabel label={'OMD Dystro Ope-net'}/>
-            <SidePanelItemLink label={'INFO'}/>
-            <SidePanelItemLink label={'2018'}/>
-            <SidePanelItemLink label={'2017'}/>
-            <SidePanelItemLink label={'2016'}/>
-        </div>
+                    </List>
 
-        <div>
-            <SidePanelItemsLabel label={'Sponzori'}/>
-        </div>
+
+                </Card>
+            </Grid>
+            <Grid item xs={12}>
+                <Card>
+
+                    <List
+                        subheader={
+                            <ListSubheader
+                                component="div"
+                            >
+                                OMD Dystro Ope-net
+                            </ListSubheader>}
+                    >
+                        {
+                            [
+                                'INFO',
+                                '2018',
+                                '2017',
+                                '2016'
+                            ].map(link => <ListItem button>
+                                <ListItemText primary={link}/>
+                            </ListItem>)
+                        }
+
+                    </List>
+
+
+                </Card>
+            </Grid>
+
+            <Grid item xs={12}>
+                <Card>
+
+                    <List
+                        subheader={
+                            <ListSubheader
+                                component="div"
+                            >
+                                Sponzori
+                            </ListSubheader>}
+                    >
+                        {
+                            [
+
+                            ].map(link => <ListItem button>
+                                <ListItemText primary={link}/>
+                            </ListItem>)
+                        }
+
+                    </List>
+
+
+                </Card>
+            </Grid>
+
+        </Grid>
+
+
+
+
+
+
 
     </div>
-}
+});
