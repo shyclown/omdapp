@@ -4,6 +4,8 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import {createStyles} from "@material-ui/core";
 import {SidePanel} from "../side";
 import Article from "../../components/Article";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => createStyles({
     contentItem: {
@@ -73,6 +75,9 @@ export const Content = (props) => {
 export const ContentWrap = () => {
   return             <div style={{flexGrow: 1}}>
       <Article/>
+      <Toolbar>
+          <Typography>Divide</Typography>
+      </Toolbar>
       <ContentItemDateSeparator date={'28.1.2020'}/>
       <ContentItem/>
       <ContentItem/>

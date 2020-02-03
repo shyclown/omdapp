@@ -4,6 +4,8 @@ import {compose} from "redux";
 import Card from "@material-ui/core/Card";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
+import CardActions from "@material-ui/core/CardActions";
+import Button from "@material-ui/core/Button";
 
 const styles = theme => ({
 
@@ -15,12 +17,16 @@ class Article extends React.Component{
 
     render(){
         return <Card>
-            <CardHeader title={'Lizard'}/>
-            <Divider light />
+            <CardHeader
+                disableTypography={false}
+                title={<span style={{fontWeight: 500}}>Header</span>}
+                subheader={'Subheader'}
+            />
+
             <CardContent>
                 <Typography
                     variant="body2"
-                    color="textSecondary"
+
                     component="p"
                 >
                     Nam eget velit eu sem sodales rutrum vel
@@ -36,7 +42,10 @@ class Article extends React.Component{
                     elit porta neque
                 </Typography>
             </CardContent>
-        </Card>
+            <CardActions>
+                <div style={{flexGrow: 1}}/>
+                <Button color={"primary"}>Cely Clanok ></Button>
+            </CardActions></Card>
     }
 }
 

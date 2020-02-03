@@ -27,7 +27,7 @@ const styles = theme => ({
     innerToolbar:{
         width:'100%',
         position: 'static',
-        //backgroundColor: theme.palette.faded[200],
+        //backgroundColor: style.palette.faded[200],
         color: '#000',
         borderRadius: 0,
         zIndex: 1,
