@@ -14,6 +14,7 @@ import {BottomBar} from "./components/footer";
 
 
 const createLink = (str) => str.split(' ').join('_');
+
 function App() {
     return (
         <Router>
@@ -26,7 +27,7 @@ function App() {
                     <div>
                         <Redirect to={createLink(links[0])}/>
                     { links.map( (link, i) =>
-                        <Route key={i} path={'/'+createLink(path)}>
+                        <Route key={i} path={'/'+createLink(link)}>
                              <Content link={link}/>
                         </Route>
                     )}

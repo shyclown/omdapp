@@ -2,16 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fb08ba2-1598-4317-a5cb-7338b84238ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/content/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/footer/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/side/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/top/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/lorem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/mock.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Article.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UniversalPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/universal/UniversalPanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serviceWorker.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/serviceWorker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/content/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/content/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/top/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/top/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,6 +81,8 @@
       <updated>1580322830441</updated>
       <workItem from="1580322832373" duration="15249000" />
       <workItem from="1580402815012" duration="854000" />
+      <workItem from="1580570427599" duration="5972000" />
+      <workItem from="1580650987702" duration="599000" />
     </task>
     <servers />
   </component>
@@ -95,7 +94,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -106,6 +107,10 @@
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
     <state x="254" y="387" key="#com.intellij.fileTypes.FileTypeChooser/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1580420789881" />
+    <state x="105" y="179" key="CommitChangelistDialog2" timestamp="1580423947067">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state x="105" y="179" key="CommitChangelistDialog2/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1580423947067" />
     <state x="0" y="104" key="DiffContextDialog" timestamp="1580407731938">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
@@ -138,14 +143,14 @@
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
     <state x="40" y="223" key="SettingsEditor/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1580402885771" />
-    <state x="131" y="314" key="Vcs.Push.Dialog.v2" timestamp="1580407750279">
+    <state x="131" y="314" key="Vcs.Push.Dialog.v2" timestamp="1580423950636">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state x="131" y="314" key="Vcs.Push.Dialog.v2/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1580407750279" />
-    <state x="235" y="405" key="com.intellij.ide.util.TipDialog" timestamp="1580402965428">
+    <state x="131" y="314" key="Vcs.Push.Dialog.v2/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1580423950636" />
+    <state x="235" y="405" key="com.intellij.ide.util.TipDialog" timestamp="1580585054911">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state x="235" y="405" key="com.intellij.ide.util.TipDialog/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1580402965428" />
+    <state x="235" y="405" key="com.intellij.ide.util.TipDialog/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1580585054911" />
     <state x="444" y="372" key="git4idea.merge.GitPullDialog" timestamp="1580407639823">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
