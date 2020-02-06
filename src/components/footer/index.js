@@ -73,7 +73,13 @@ export const BottomBar = (props) => {
                 />
                 <DefaultMenu
                     open={open == 'chess'}
-                    items={[{name:'item'}]}
+                    items={[
+                        {name: 'Zahraj si'},
+                        {name: 'Sachove videa'},
+                        {name: 'Nasi Sachisti'},
+                        {name: 'Historia klubu'},
+                        {name: 'Odkazy'}
+                    ]}
                     handleClose={()=>setOpen(null)}
                     onClose={()=>setOpen(null)}
                     anchorOrigin={{ vertical: "top", horizontal: "center" }}

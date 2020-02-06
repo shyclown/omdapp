@@ -6,46 +6,63 @@ import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
+import Grid from "@material-ui/core/Grid";
+import LoremIpsum from "../utils/lorem";
+
 
 const styles = theme => ({
 
 });
+const ArticleContent = (props) => {
+    return <Typography
+        variant="body2"
 
+        component="p"
+    >
+        <LoremIpsum sentences={props.sentences}/>
+    </Typography>
+};
 class Article extends React.Component{
 
 
 
     render(){
+        const image = true;
         return <Card>
-            <CardHeader
-                disableTypography={true}
-                title={<Typography variant={'h5'} style={{fontWeight: 500}}>Header</Typography>}
-                subheader={<Typography variant={'subtitle'} color={'secondary'}>Subheader</Typography>}
-            />
 
-            <CardContent>
-                <Typography
-                    variant="body2"
 
-                    component="p"
-                >
-                    Nam eget velit eu sem sodales rutrum vel
-                    quis elit Donec rhoncus est id sapien ornare,
-                    a tincidunt nunc varius Curabitur auctor
-                    rhoncus elementum Donec hendrerit sapien
-                    non commodo scelerisque Proin mauris libero,
-                    fermentum facilisis dolor at, aliquet tempor
-                    lacus Aliquam laoreet tortor at nibh ornare,
-                    vel luctus justo pharetra Aenean in ipsum ante
-                    Praesent tincidunt, mi a sagittis sagittis,
-                    nulla ipsum feugiat urna, sed rutrum ipsum
-                    elit porta neque
-                </Typography>
-            </CardContent>
-            <CardActions>
-                <div style={{flexGrow: 1}}/>
-                <Button color={"primary"}>Cely Clanok ></Button>
-            </CardActions></Card>
+                        <div style={{display:"flex", flexDirection: 'row', flexGrow:1}}>
+                            <div style={{
+                                backgroundColor:'gray',
+                                minWidth:"250px",
+                                minHeight: "200px",
+
+
+
+
+                            }}>AAA</div>
+
+                            <div style={{flexGrow: 1}}>
+                                <CardHeader
+                                    disableTypography={true}
+                                    title={<Typography variant={'h5'} style={{fontWeight: 500}}>Header</Typography>}
+                                    subheader={<Typography variant={'subtitle'} style={{fontWeight: 500}} color={'secondary'}>Subheader</Typography>}
+                                />
+                                <Divider/>
+                                <CardContent>
+                                <ArticleContent sentences={Math.floor(Math.random()*5 )}/>
+                                </CardContent>
+                                <CardActions>
+                                    <div style={{flexGrow: 1}}/>
+                                    <Button color={"primary"}>Cely Clanok ></Button>
+                                </CardActions>
+                            </div>
+                        </div>
+
+
+
+
+            </Card>
     }
 }
 

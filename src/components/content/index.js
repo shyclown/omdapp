@@ -16,8 +16,8 @@ import Card from "@material-ui/core/Card";
 const useStyles = makeStyles((theme) => createStyles({
     divider: {
       backgroundColor: theme.palette.secondary.light,
-
-
+    },
+    content: {
     },
     contentItem: {
         display: 'flex',
@@ -75,7 +75,7 @@ export const Content = (props) => {
                 </div>
             </div>
         </div>
-        <div style={{display:'flex', margin:'0 auto', maxWidth: '1000px'}}>
+        <div style={{display:'flex', margin:'0 auto', maxWidth: '1000px',padding:'8px'}}>
             <ContentWrap/>
             <SidePanel/>
         </div>
@@ -85,33 +85,38 @@ export const Content = (props) => {
 
 export const ContentWrap = () => {
     const classNames = useStyles();
-  return             <div style={{flexGrow: 1}}>
-      <Grid container spacing={1}>
-        <Grid item>
-              <Article/>
-        </Grid>
-          <Grid item xs={12} >
-          <Card className={classNames.divider}>
-              <Toolbar variant={'dense'}>
-                  28.1.2020
-              </Toolbar>
-          </Card>
+    return (
+        <div style={{
+            flexGrow: 1,
+            }}
+        >
+          <Grid container spacing={2}>
+            <Grid item xs={12} >
+                  <Article/>
+            </Grid>
+              <Grid item xs={12} >
+              <Card className={classNames.divider}>
+                  <Toolbar variant={'dense'}>
+                      28.1.2020
+                  </Toolbar>
+              </Card>
+
+              </Grid>
+              <Grid item xs={12}>
+                  <Article/>
+              </Grid>
+              <Grid item xs={12}>
+                  <Article/>
+              </Grid>
+              <Grid item xs={12}>
+                  <Article/>
+              </Grid>
 
           </Grid>
-          <Grid item>
-              <Article/>
-          </Grid>
-          <Grid item>
-              <Article/>
-          </Grid>
-          <Grid item>
-              <Article/>
-          </Grid>
-
-      </Grid>
 
 
-  </div>
+        </div>
+    );
 };
 export const ContentItem = (props) => {
 

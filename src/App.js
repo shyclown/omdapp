@@ -24,7 +24,7 @@ function App() {
         <Router>
 
             <ThemeProvider theme={theme}>
-        <div style={{height: '100vh', backgroundColor: '#666'}}>
+
 
             <UniversalPanel
                 singlePanel
@@ -41,7 +41,7 @@ function App() {
                 }
                 footer={<BottomBar/>}
             />
-        </div>
+
             </ThemeProvider>
         </Router>
     );
