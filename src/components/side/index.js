@@ -1,6 +1,6 @@
 import React from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {createStyles, isWidthDown} from "@material-ui/core";
+import {createStyles, isWidthDown, ListItemIcon} from "@material-ui/core";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import List from "@material-ui/core/List";
@@ -11,6 +11,11 @@ import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import withWidth from "@material-ui/core/withWidth";
 import {compose} from "redux";
+
+
+
+import {Info as InfoIcon} from '@material-ui/icons';
+import {SupervisorAccount as SponsorIcon} from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => createStyles({
     sidePanelItemsLink: {
@@ -45,6 +50,11 @@ const SidePanelItemLink = (props) => {
     return <div className={classNames.sidePanelItemsLink}>{props.label}</div>
 };
 
+const InfoLinks = [
+    {name: 'news', title: 'Novinky', icon: ''},
+    {name: 'archive', title: 'Archiv', icon: ''}
+];
+
 export const SidePanel = compose(withWidth())(
     (props) => {
 
@@ -64,6 +74,7 @@ export const SidePanel = compose(withWidth())(
                 <Card>
 
                     <List
+
                         subheader={
                             <ListSubheader
                                 component="div"
@@ -71,6 +82,7 @@ export const SidePanel = compose(withWidth())(
                                 Informacie
                             </ListSubheader>}
                     >
+
                         <ListItem button>
                             <Typography>
                                 Novinky
@@ -91,6 +103,7 @@ export const SidePanel = compose(withWidth())(
                 <Card>
 
                     <List
+
                         subheader={
                             <ListSubheader
                                 component="div"
@@ -148,12 +161,15 @@ export const SidePanel = compose(withWidth())(
 
                     <List
                         subheader={
-                            <ListSubheader
-                                component="div"
-                            >
-                                Sponzori
-                            </ListSubheader>}
+                            <React.Fragment>
+
+                            </React.Fragment>
+                        }
                     >
+                        <ListSubheader component="div">
+                            <SponsorIcon/>
+                            Sponzori
+                        </ListSubheader>
                         {
                             [
 
