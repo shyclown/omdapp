@@ -1,22 +1,23 @@
 {
   "files": {
     "main.css": "/omdapp/static/css/main.420cb03d.chunk.css",
-    "main.js": "/omdapp/static/js/main.827ea122.chunk.js",
-    "main.js.map": "/omdapp/static/js/main.827ea122.chunk.js.map",
+    "main.js": "/omdapp/static/js/main.e73ed191.chunk.js",
+    "main.js.map": "/omdapp/static/js/main.e73ed191.chunk.js.map",
     "runtime-main.js": "/omdapp/static/js/runtime-main.9b34985f.js",
     "runtime-main.js.map": "/omdapp/static/js/runtime-main.9b34985f.js.map",
-    "static/js/2.5d652234.chunk.js": "/omdapp/static/js/2.5d652234.chunk.js",
-    "static/js/2.5d652234.chunk.js.map": "/omdapp/static/js/2.5d652234.chunk.js.map",
+    "static/js/2.7328cbfc.chunk.js": "/omdapp/static/js/2.7328cbfc.chunk.js",
+    "static/js/2.7328cbfc.chunk.js.map": "/omdapp/static/js/2.7328cbfc.chunk.js.map",
     "index.html": "/omdapp/index.html",
-    "precache-manifest.189778843f74564419529f49104549a4.js": "/omdapp/precache-manifest.189778843f74564419529f49104549a4.js",
+    "precache-manifest.6971c5cf647e0d8a2afa61a6339ba13a.js": "/omdapp/precache-manifest.6971c5cf647e0d8a2afa61a6339ba13a.js",
     "service-worker.js": "/omdapp/service-worker.js",
     "static/css/main.420cb03d.chunk.css.map": "/omdapp/static/css/main.420cb03d.chunk.css.map",
-    "static/js/2.5d652234.chunk.js.LICENSE": "/omdapp/static/js/2.5d652234.chunk.js.LICENSE"
+    "static/js/2.7328cbfc.chunk.js.LICENSE": "/omdapp/static/js/2.7328cbfc.chunk.js.LICENSE",
+    "static/media/bg.png": "/omdapp/static/media/bg.bb7048ff.png"
   },
   "entrypoints": [
     "static/js/runtime-main.9b34985f.js",
-    "static/js/2.5d652234.chunk.js",
+    "static/js/2.7328cbfc.chunk.js",
     "static/css/main.420cb03d.chunk.css",
-    "static/js/main.827ea122.chunk.js"
+    "static/js/main.e73ed191.chunk.js"
   ]
 }
