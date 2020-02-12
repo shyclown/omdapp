@@ -28,7 +28,7 @@ class Article extends React.Component{
 
     render(){
         const image = true;
-        return <Card>
+        return <Card elevation={0}>
 
 
                         <div style={{display:"flex", flexDirection: 'row', flexGrow:1}}>
@@ -40,23 +40,26 @@ class Article extends React.Component{
 
 
 
-                            }}>AAA</div>
+                            }}>Image</div>
 
-                            <div style={{flexGrow: 1}}>
-                                <CardHeader
-                                    disableTypography={true}
-                                    title={<Typography variant={'h5'} style={{fontWeight: 500}}>Header</Typography>}
-                                    subheader={<Typography variant={'subtitle'} style={{fontWeight: 500}} color={'secondary'}>Subheader</Typography>}
-                                />
-                                <Divider/>
-                                <CardContent>
-                                <ArticleContent sentences={Math.floor(Math.random()*5 )}/>
+
+
+<div style={{display: 'flex',
+    flexDirection: 'column',
+    width: '100%'}}>
+
+                                <CardContent style={{flexGrow:1}}>
+                                    <Typography variant={'h5'} style={{fontWeight: 500}}>Header</Typography>
+                                    <Typography variant={'subtitle1'} style={{fontWeight: 500}} color={'secondary'}>Header</Typography>
+                                    <ArticleContent sentences={Math.floor(Math.random()*5 )}/>
                                 </CardContent>
                                 <CardActions>
                                     <div style={{flexGrow: 1}}/>
-                                    <Button color={"primary"}>Cely Clanok ></Button>
+
+                                    <Button color={"primary"} variant={'text'} size={'small'}>Cely Clanok</Button>
                                 </CardActions>
-                            </div>
+</div>
+
                         </div>
 
 

@@ -1,21 +1,19 @@
 import LoremIpsum from "../../utils/lorem";
 import React from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {createStyles} from "@material-ui/core";
+import {createStyles, isWidthDown, withWidth} from "@material-ui/core";
 import {SidePanel} from "../side";
 import Article from "../../components/Article";
 import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import useTheme from "@material-ui/core/styles/useTheme";
-import Divider from "@material-ui/core/Divider";
 import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
 import Card from "@material-ui/core/Card";
-
+import bg from "./bg.png";
+import Typography from "@material-ui/core/Typography";
+import {compose} from "redux";
 
 const useStyles = makeStyles((theme) => createStyles({
     divider: {
-      backgroundColor: theme.palette.secondary.light,
+      backgroundColor: theme.color.grey.light,
     },
     content: {
     },
@@ -26,7 +24,8 @@ const useStyles = makeStyles((theme) => createStyles({
     },
     contentItemImage: {
         minWidth: '200px',
-        backgroundColor: '#888',
+        backgroundImage: `url(${bg})`,
+
         marginRight: '24px',
     },
     contentItemDateSeparator: {
@@ -59,29 +58,41 @@ const useStyles = makeStyles((theme) => createStyles({
     },
 
 }));
-export const Content = (props) => {
+export const Content =  compose(withWidth())(
+    (props) => {
     const classNames = useStyles();
+    const xs = isWidthDown('xs', props.width);
+
     return <div className={classNames.content}>
-        <div style={{width: '100%', height: '250px', backgroundColor:'#555', position:'relative'}}>
-            <div style={{display:'flex', margin:'0 auto', maxWidth: '1000px'}}>
+        <div style={{
+            width: '100%',
+            height: '250px',
+            backgroundImage: `url(${bg})`,
+            position: 'relative',
+
+        }}>
+            <div style={{display: 'flex', margin: '0 auto', maxWidth: '1000px'}}>
                 <div style={{
-                    position:'absolute',
-                    bottom: '0px',
-                    fontSize:'3rem',
-                    fontWeight:'500',
-                    color:'white'}}
+                    position: 'absolute',
+                    bottom: '16px',
+                    fontSize: '3rem',
+                    fontWeight: '500',
+                    color: 'white'
+                }}
                 >
-                    {props.link === 'Domov' ? 'Vitaj' : props.link}
+                    <Typography variant={xs ? 'h3' : 'h2'}>
+                        {props.link === 'Domov' ? 'Vitaj' : props.link}
+                    </Typography>
                 </div>
             </div>
         </div>
-        <div style={{display:'flex', margin:'0 auto', maxWidth: '1000px',padding:'8px'}}>
+        <div style={{display: 'flex', margin: '0 auto', maxWidth: '1000px', padding: '8px'}}>
             <ContentWrap/>
             <SidePanel/>
         </div>
 
     </div>
-};
+});
 
 export const ContentWrap = () => {
     const classNames = useStyles();
@@ -95,7 +106,7 @@ export const ContentWrap = () => {
                   <Article/>
             </Grid>
               <Grid item xs={12} >
-              <Card className={classNames.divider}>
+              <Card elevation={0} className={classNames.divider}>
                   <Toolbar variant={'dense'}>
                       28.1.2020
                   </Toolbar>

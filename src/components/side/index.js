@@ -71,7 +71,7 @@ export const SidePanel = compose(withWidth())(
     >
         <Grid container spacing={1}>
             <Grid item xs={12}>
-                <Card>
+                <Card elevation={0}>
 
                     <List
 
@@ -100,7 +100,7 @@ export const SidePanel = compose(withWidth())(
             </Grid>
 
             <Grid item xs={12}>
-                <Card>
+                <Card elevation={0}>
 
                     <List
 
@@ -118,7 +118,7 @@ export const SidePanel = compose(withWidth())(
                                 'Nasi Sachisti',
                                 'Historia klubu',
                                 'Odkazy'
-                            ].map(link => <ListItem button>
+                            ].map((link, index) => <ListItem key={index} button>
                                 <ListItemText primary={link}/>
                             </ListItem>)
                         }
@@ -129,7 +129,7 @@ export const SidePanel = compose(withWidth())(
                 </Card>
             </Grid>
             <Grid item xs={12}>
-                <Card>
+                <Card elevation={0}>
 
                     <List
                         subheader={
@@ -145,7 +145,7 @@ export const SidePanel = compose(withWidth())(
                                 '2018',
                                 '2017',
                                 '2016'
-                            ].map(link => <ListItem button>
+                            ].map((link,index) => <ListItem key={index} button>
                                 <ListItemText primary={link}/>
                             </ListItem>)
                         }
@@ -157,7 +157,7 @@ export const SidePanel = compose(withWidth())(
             </Grid>
 
             <Grid item xs={12}>
-                <Card>
+                <Card elevation={0}>
 
                     <List
                         subheader={
@@ -167,7 +167,6 @@ export const SidePanel = compose(withWidth())(
                         }
                     >
                         <ListSubheader component="div">
-                            <SponsorIcon/>
                             Sponzori
                         </ListSubheader>
                         {

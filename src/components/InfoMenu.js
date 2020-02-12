@@ -12,7 +12,7 @@ export const DefaultMenu = (props) =>  {
            <Menu {...restProps}>
                 {
                     items.map(
-                        item => <MenuItem onClick={handleClose} key={item.id}>
+                        (item, index) => <MenuItem onClick={handleClose} key={index}>
                         {item.name}
                         </MenuItem>
                     )}
@@ -21,12 +21,5 @@ export const DefaultMenu = (props) =>  {
     );
 }
 
-export const ChessMenu = (props) => {
 
-    return <DefaultMenu {...props}/>
-}
 
-const InfoMenu = () => {
-    const items = ['']
-    return null;
-}

@@ -45,8 +45,7 @@ export const BottomBar = (props) => {
                 showLabels
                 onChange={handleChange}
                 variant="fullWidth"
-                indicatorColor="secondary"
-                textColor="secondary"
+
                 aria-label="icon label tabs example"
             >
                 <BottomNavigationAction icon={<InfoIcon />} label="Informacie" onClick={(event)=> {

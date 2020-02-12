@@ -1,7 +1,7 @@
-import {useHistory} from "react-router-dom";
+import {useHistory, useRouteMatch} from "react-router-dom";
 import React from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {createStyles, isWidthDown, withWidth} from "@material-ui/core";
+import {createStyles, isWidthDown, useTheme, withWidth} from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import HomeIcon from "@material-ui/icons/Home";
 import {links} from "../../utils/mock";
@@ -17,13 +17,24 @@ import ListItemText from "@material-ui/core/ListItemText";
 import {compose} from "redux";
 import Typography from "@material-ui/core/Typography";
 import Toolbar from "@material-ui/core/Toolbar";
+import Button from "@material-ui/core/Button";
+import {withRouter} from "react-router";
 
 const useStyles = makeStyles((theme) => createStyles({
 
+    toolbar: {
+        backgroundColor: theme.palette.primary.main,
+        color:'white'
+    },
+    topBar: {
+      backgroundColor: theme.palette.primary.light,
+    },
+
     link: {
+        cursor: 'pointer',
         padding:'16px 16px',
         '&:hover': {
-            backgroundColor:'#f6b322'
+            backgroundColor: theme.palette.secondary.light,
         }
     }
 }));
@@ -49,7 +60,7 @@ export const TopBar = compose(withWidth())(
 
 
     return <div >
-        <div className={classNames.topBar} style={{backgroundColor: '#082962', color: 'white'}}>
+        <div className={classNames.toolbar}>
             {
                 xs && <React.Fragment>
                     <Toolbar>
@@ -85,20 +96,26 @@ export const TopBar = compose(withWidth())(
                 </React.Fragment>
             }
             {   !xs &&
-                <div style={{display: 'flex', margin: '0 auto', maxWidth: '1000px', padding: '16px 16px'}}>
+                <div style={{
 
+                    margin: '0 auto',
+                    maxWidth: '1000px',
 
-                    <b>SachOMD, Motto</b>
-                    <div style={{flexGrow: 1}}></div>
-                    <span>EN / SK</span>
+                }}>
+
+                    <Toolbar disableGutters classes={{root: classNames.toolbar}}>
+                        <Typography variant={'h5'} style={{color:'white'}}>Šachomd, Motto</Typography>
+                        <div style={{flexGrow: 1}}></div>
+                        <span>EN / SK</span>
+                    </Toolbar>
+
                 </div>
             }
         </div>
         {
             !xs &&
-            <div className={classNames.topBar}
-                 style={{backgroundColor: '#7db7e1', color: '#082962'}}>
-                <div style={{display: 'flex', margin: '0 auto', maxWidth: '1032px'}}>
+            <div className={classNames.topBar}>
+                <div style={{display: 'flex', margin: '0 auto', padding:'8px 16px', maxWidth: '1032px'}}>
                     {
                         links.map(
                             (link, index) =>
@@ -115,22 +132,33 @@ export const TopBar = compose(withWidth())(
     </div>
 });
 const getLink = (link) => link.split(' ').join('_');
-const TopLink = (props) => {
+
+const TopLink = withRouter((props) => {
+
+    const link = getLink(props.link);
+    const selected = (props.location.pathname === '/'+link);
+
+
+
     let history = useHistory();
-    const classNames = useStyles();
-    return <div
+    let theme = useTheme();
+    return <Button
+        key={props.link}
+        disableElevation
+        variant={ 'contained'}
+        style={{
+            backgroundColor: selected ? theme.palette.secondary.light : 'inherit',
+            color: theme.palette.primary.dark
+        }}
+
         onClick={ () => {
-            const link = props.link.split(' ').join('_');
             history.push(link);
         } }
-        className={classNames.link}
-        style={{
-            cursor: 'pointer',
-        }}
+
     >
         {props.link || ''}
-    </div>
+    </Button>
         ;
-};
+});
 
 
