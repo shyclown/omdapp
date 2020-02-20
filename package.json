@@ -2,7 +2,7 @@
   "name": "omdapp",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://shyclown.github.io/omdapp",
+  "homepage": "http://shyclown.com",
   "dependencies": {
     "@material-ui/icons": "^4.5.1",
     "@testing-library/jest-dom": "^4.2.4",
