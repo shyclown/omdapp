@@ -1,5 +1,7 @@
 import React from 'react';
 import './App.css';
+
+import config from "./utils/config";
 import UniversalPanel from "./universal/UniversalPanel";
 import {ThemeProvider} from "@material-ui/core/styles";
 import {HashRouter as Router, Link, Switch, Route, Redirect} from "react-router-dom";
@@ -14,6 +16,43 @@ import {Content} from "./components/content";
 import {TopBar} from "./components/top";
 import {BottomBar} from "./components/footer";
 
+console.log(config)
+
+const gapi = window.gapi;
+const CLIENT_ID = "664742009776-n23slos09r4qseo5pbjic6qo1bd3qe0i.apps.googleusercontent.com";
+const API_KEY = "AIzaSyAJ0tl16XnnSPVbx1XRinN2OKCXcfDB9Fk";
+const DISCOVERY_DOCS = ["https://sheets.googleapis.com/$discovery/rest?version=v4"];
+const SCOPES = "https://www.googleapis.com/auth/spreadsheets.readonly";
+
+/**
+ *  Called when the signed in status changes, to update the UI
+ *  appropriately. After a sign-in, the API is called.
+ */
+
+let loaded = null;
+
+gapi.client.init({
+    apiKey: API_KEY,
+    clientId: CLIENT_ID,
+    discoveryDocs: DISCOVERY_DOCS,
+    scope: SCOPES
+}).then(function () {
+// Listen for sign-in state changes.
+   gapi.client.sheets.spreadsheets.values
+       .get({
+           spreadsheetId: '1541999hALHI9fQuqhnzN9NTlHahUOinNwqKHEga_Y_w',
+           range: 'Sheet1!A:E'
+       })
+       .then((response) => {
+           let result = response.result;
+           let numRows = result.values ? result.values.length : 0;
+           console.log(result);
+           console.log(`${numRows} rows retrieved.`);
+       });
+
+}, function(error) {
+    // cant load
+});
 
 
 

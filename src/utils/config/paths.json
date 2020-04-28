@@ -1,0 +1,7 @@
+{
+  "CLIENT_ROOT": "/app",
+  "CLIENT_HOME": "/app",
+
+  "PUBLIC_ROOT": "/",
+  "LOGIN": "/login"
+}

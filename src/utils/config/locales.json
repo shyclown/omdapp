@@ -1,0 +1,18 @@
+{
+  "us": {
+    "TITLE": "English (US)",
+    "DATE_FORMAT": "ll",
+    "DATETIME_FORMAT": "lll",
+    "TIME_FORMAT": "LT",
+    "DEFAULT_LANG": "en",
+    "LANGUAGES": ["en", "de"]
+  },
+  "de": {
+    "TITLE": "Deutsch",
+    "DATE_FORMAT": "LL",
+    "DATETIME_FORMAT": "lll",
+    "TIME_FORMAT": "LT",
+    "DEFAULT_LANG": "de",
+    "LANGUAGES": ["en", "de"]
+  }
+}
