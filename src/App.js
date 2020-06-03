@@ -15,6 +15,7 @@ import {Content} from "./components/content";
 
 import {TopBar} from "./components/top";
 import {BottomBar} from "./components/footer";
+import {loadNavigaitons} from "./utils/resources/navigations";
 
 console.log(config)
 
@@ -31,6 +32,7 @@ const SCOPES = "https://www.googleapis.com/auth/spreadsheets.readonly";
 
 let loaded = null;
 
+gapi.client &&
 gapi.client.init({
     apiKey: API_KEY,
     clientId: CLIENT_ID,
@@ -55,10 +57,14 @@ gapi.client.init({
 });
 
 
-
 const createLink = (str) => str.split(' ').join('_');
 
 function App() {
+
+
+
+    loadNavigaitons().then(()=>console.log('data'))
+
     return (
         <Router>
 
