@@ -1,5 +1,5 @@
 import axios from './../api'
-export const loadNavigaitons = () => {
+export const loadNavigations = () => {
     console.log('navigate')
     return axios.get('/client/navigation')
 }

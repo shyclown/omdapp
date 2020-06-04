@@ -41,6 +41,9 @@ const useStyles = makeStyles((theme) => createStyles({
 
 export const TopBar = compose(withWidth())(
     (props) => {
+
+
+        console.log(props.links);
     const classNames = useStyles();
 
     const [state, setState] = React.useState({
@@ -75,6 +78,20 @@ export const TopBar = compose(withWidth())(
                         onClose={toggleDrawer('left', false)}
                     >
                         <List>
+                            {
+                                props.links.map(
+                                    (link) => <ListItem
+                                    button
+                                    key={link.id}
+                                    onClick={() => {
+                                    setState(
+                                        {left: false});
+                                    }}
+                                >
+                                    <ListItemIcon><HomeIcon/></ListItemIcon>
+                                    <ListItemText primary={link.entity.title}/>
+                                </ListItem>)
+                            }
 
                         {
                             links.map(
@@ -116,6 +133,19 @@ export const TopBar = compose(withWidth())(
             !xs &&
             <div className={classNames.topBar}>
                 <div style={{display: 'flex', margin: '0 auto', padding:'8px 16px', maxWidth: '1032px'}}>
+
+                    {
+                        props.links && props.links.map(
+                            (link) => {
+                                console.log(link);
+                                return <Button
+                                    key={link.id}
+                                >
+                                    {link.entity.title}
+                                </Button>
+                            })
+                    }
+
                     {
                         links.map(
                             (link, index) =>
@@ -131,7 +161,7 @@ export const TopBar = compose(withWidth())(
         }
     </div>
 });
-const getLink = (link) => link.split(' ').join('_');
+const getLink = (link) => link && link.split ? link.split(' ').join('_') : '';
 
 const TopLink = withRouter((props) => {
 

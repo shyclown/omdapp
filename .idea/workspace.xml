@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0fb08ba2-1598-4317-a5cb-7338b84238ca" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/top/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/top/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/resources/navigations.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/resources/navigations.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -134,7 +132,8 @@
       <workItem from="1590074150103" duration="599000" />
       <workItem from="1590162834293" duration="599000" />
       <workItem from="1590217224407" duration="629000" />
-      <workItem from="1591212525334" duration="1851000" />
+      <workItem from="1591212525334" duration="2156000" />
+      <workItem from="1591290636408" duration="7437000" />
     </task>
     <task id="LOCAL-00001" summary="workspace">
       <created>1582222638727</created>
@@ -143,7 +142,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582222638727</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="workspace">
+      <created>1591216501224</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1591216501224</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,67 +186,14 @@
     <option name="LAST_COMMIT_MESSAGE" value="workspace" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="254" y="387" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1580420789881">
-      <screen x="0" y="0" width="1920" height="1160" />
-    </state>
-    <state x="254" y="387" key="#com.intellij.fileTypes.FileTypeChooser/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1580420789881" />
-    <state x="105" y="179" key="CommitChangelistDialog2" timestamp="1582222638174">
-      <screen x="0" y="0" width="1920" height="1160" />
-    </state>
-    <state x="105" y="179" key="CommitChangelistDialog2/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1582222638174" />
-    <state x="0" y="104" key="DiffContextDialog" timestamp="1580407731938">
-      <screen x="0" y="0" width="1920" height="1160" />
-    </state>
-    <state x="0" y="104" key="DiffContextDialog/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1580407731938" />
-    <state x="399" y="504" key="Github.Dialog.Accounts.Choose" timestamp="1580403242605">
-      <screen x="0" y="0" width="1920" height="1160" />
-    </state>
-    <state x="399" y="504" key="Github.Dialog.Accounts.Choose/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1580403242605" />
-    <state width="914" height="320" key="GridCell.Tab.0.bottom" timestamp="1580323403122">
-      <screen x="0" y="0" width="1920" height="1160" />
-    </state>
-    <state width="914" height="320" key="GridCell.Tab.0.bottom/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1580323403122" />
-    <state width="914" height="320" key="GridCell.Tab.0.center" timestamp="1580323403122">
-      <screen x="0" y="0" width="1920" height="1160" />
-    </state>
-    <state width="914" height="320" key="GridCell.Tab.0.center/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1580323403122" />
-    <state width="914" height="320" key="GridCell.Tab.0.left" timestamp="1580323403122">
-      <screen x="0" y="0" width="1920" height="1160" />
-    </state>
-    <state width="914" height="320" key="GridCell.Tab.0.left/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1580323403122" />
-    <state width="914" height="320" key="GridCell.Tab.0.right" timestamp="1580323403122">
-      <screen x="0" y="0" width="1920" height="1160" />
-    </state>
-    <state width="914" height="320" key="GridCell.Tab.0.right/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1580323403122" />
-    <state x="428" y="297" key="MultipleFileMergeDialog" timestamp="1580407761313">
-      <screen x="0" y="0" width="1920" height="1160" />
-    </state>
-    <state x="428" y="297" key="MultipleFileMergeDialog/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1580407761313" />
-    <state x="40" y="223" key="SettingsEditor" timestamp="1581963069160">
-      <screen x="0" y="0" width="1920" height="1160" />
-    </state>
-    <state x="40" y="223" key="SettingsEditor/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1581963069160" />
-    <state x="131" y="314" key="Vcs.Push.Dialog.v2" timestamp="1582222640794">
-      <screen x="0" y="0" width="1920" height="1160" />
-    </state>
-    <state x="131" y="314" key="Vcs.Push.Dialog.v2/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1582222640794" />
     <state x="235" y="405" key="com.intellij.ide.util.TipDialog" timestamp="1586873343279">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
     <state x="235" y="405" key="com.intellij.ide.util.TipDialog/0.0.1920.1160@0.0.1920.1160" timestamp="1586873343279" />
-    <state x="235" y="405" key="com.intellij.ide.util.TipDialog/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1582222223805" />
-    <state x="219" y="312" width="607" height="536" key="find.popup" timestamp="1581451279446">
+    <state x="1147" y="313" width="585" height="534" key="find.popup" timestamp="1591290786712">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state x="219" y="312" width="607" height="536" key="find.popup/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1581451279446" />
-    <state x="444" y="372" key="git4idea.merge.GitPullDialog" timestamp="1580761174807">
-      <screen x="0" y="0" width="1920" height="1160" />
-    </state>
-    <state x="444" y="372" key="git4idea.merge.GitPullDialog/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1580761174807" />
-    <state x="185" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1581450963543">
-      <screen x="0" y="0" width="1920" height="1160" />
-    </state>
-    <state x="185" y="259" width="672" height="678" key="search.everywhere.popup/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1581450963543" />
+    <state x="1147" y="313" width="585" height="534" key="find.popup/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1591290786712" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

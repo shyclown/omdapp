@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 
 import config from "./utils/config";
@@ -15,7 +15,8 @@ import {Content} from "./components/content";
 
 import {TopBar} from "./components/top";
 import {BottomBar} from "./components/footer";
-import {loadNavigaitons} from "./utils/resources/navigations";
+import {loadNavigations} from "./utils/resources/navigations";
+import Button from "@material-ui/core/Button";
 
 console.log(config)
 
@@ -56,14 +57,38 @@ gapi.client.init({
     // cant load
 });
 
+export class Navigation {
+
+
+    static getEntity = (item) => item ? item.entity : false;
+    static getElements = (entity) => entity ? entity.elements : false;
+
+    static links = (navigation) => Navigation.getElements(Navigation.getEntity(navigation)) || [];
+    static linkEntity = (link) => Navigation.getEntity(link);
+    static pageItem = (linkEntity) => linkEntity.elements[0];
+}
+
 
 const createLink = (str) => str.split(' ').join('_');
 
 function App() {
 
 
+    const [navigations, setNavigations] = useState(null)
 
-    loadNavigaitons().then(()=>console.log('data'))
+    useEffect(() => {
+        !navigations && loadNavigations().then((data)=>{
+            console.log(data);
+            setNavigations(data)
+        });
+    });
+
+
+    const findTopNavigation = navigations && navigations.find( nav => nav.entity.name === 'topNavigation');
+    console.log(findTopNavigation)
+    const topNavigationLinks = findTopNavigation ? Navigation.links(findTopNavigation) : [];
+
+    console.log(topNavigationLinks);
 
     return (
         <Router>
@@ -73,10 +98,38 @@ function App() {
 
             <UniversalPanel
                 singlePanel
-                toolbar={<TopBar/>}
+                toolbar={
+                    <TopBar
+                        links={
+                            topNavigationLinks
+                        }
+                    />
+                }
                 content={
                     <div style={{ backgroundColor: '#eeeeee'}}>
-                        <Redirect to={createLink(links[0])}/>
+
+                        {
+                            navigations &&
+                            navigations.map( navigation =>
+                                <div>
+                                    <div>
+                                    {
+                                        Navigation.links(navigation).map(
+                                            linkItem => {
+                                            const el = Navigation.linkEntity(linkItem);
+
+                                            return <Button>
+                                                {el.title}
+                                            </Button>
+                                        })
+                                    }
+                                    </div>
+                                </div>
+                            )
+                        }
+
+                    <Redirect to={createLink(links[0])}/>
+
                     { links.map( (link, i) =>
                         <Route key={i} path={'/'+createLink(link)}>
                              <Content link={link}/>
