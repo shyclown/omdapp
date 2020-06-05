@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => createStyles({
     }
 }));
 
-export const TopBar = compose(withWidth())(
+export const TopBar = compose(withWidth(), withRouter)(
     (props) => {
 
 
@@ -50,6 +50,8 @@ export const TopBar = compose(withWidth())(
        left: false,
     });
 
+
+    let theme = useTheme();
     let history = useHistory();
     let xs = isWidthDown('xs', props.width);
 
@@ -94,7 +96,7 @@ export const TopBar = compose(withWidth())(
                             }
 
                         {
-                            links.map(
+                            [].map(
                                 (link, index) => <ListItem button
                                     key={index}
                                     onClick={() => {
@@ -137,17 +139,28 @@ export const TopBar = compose(withWidth())(
                     {
                         props.links && props.links.map(
                             (link) => {
-                                console.log(link);
+
                                 return <Button
                                     key={link.id}
+                                    disableElevation
+                                    variant={ 'contained'}
+                                    style={{
+                                        backgroundColor: (props.location.pathname === '/'+link.id) ? theme.palette.secondary.light : 'inherit',
+                                        color: theme.palette.primary.dark
+                                    }}
+
+                                    onClick={ () => {
+                                        history.push(link.id);
+                                    } }
+
                                 >
-                                    {link.entity.title}
+                                    {link.entity.title || ''}
                                 </Button>
                             })
                     }
 
                     {
-                        links.map(
+                        [].map(
                             (link, index) =>
                                 <TopLink key={index} link={link}/>
                         )

@@ -107,31 +107,15 @@ function App() {
                 }
                 content={
                     <div style={{ backgroundColor: '#eeeeee'}}>
-
-                        {
-                            navigations &&
-                            navigations.map( navigation =>
-                                <div>
-                                    <div>
-                                    {
-                                        Navigation.links(navigation).map(
-                                            linkItem => {
-                                            const el = Navigation.linkEntity(linkItem);
-
-                                            return <Button>
-                                                {el.title}
-                                            </Button>
-                                        })
-                                    }
-                                    </div>
-                                </div>
-                            )
-                        }
-
-                    <Redirect to={createLink(links[0])}/>
+                    <Redirect
+                        to={createLink(links[0])}
+                    />
 
                     { links.map( (link, i) =>
-                        <Route key={i} path={'/'+createLink(link)}>
+                        <Route
+                            key={i}
+                            path={'/'+createLink(link)}
+                        >
                              <Content link={link}/>
                         </Route>
                     )}

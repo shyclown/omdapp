@@ -1,5 +1,5 @@
-import LoremIpsum from "../../utils/lorem";
 import React from "react";
+import LoremIpsum from "../../utils/lorem";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {createStyles, isWidthDown, withWidth} from "@material-ui/core";
 import {SidePanel} from "../side";
@@ -145,7 +145,7 @@ export const ContentItem = (props) => {
                 <div className={classNames.contentItemInfo}>
 
                     <div style={{flexGrow: 1}}></div>
-                    Cely Clanok >
+                    Cely Clanok
                 </div>
             </div>
         </div>
