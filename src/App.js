@@ -84,9 +84,11 @@ function App() {
     });
 
 
-    const findTopNavigation = navigations && navigations.find( nav => nav.entity.name === 'topNavigation');
-    console.log(findTopNavigation)
-    const topNavigationLinks = findTopNavigation ? Navigation.links(findTopNavigation) : [];
+    const topNavigation = navigations && navigations.find(
+        nav => nav.entity.name === 'topNavigation'
+    );
+    console.log(topNavigation)
+    const topNavigationLinks = topNavigation ? Navigation.links(topNavigation) : [];
 
     console.log(topNavigationLinks);
 
@@ -100,6 +102,7 @@ function App() {
                 singlePanel
                 toolbar={
                     <TopBar
+                        navigation={topNavigation}
                         links={
                             topNavigationLinks
                         }

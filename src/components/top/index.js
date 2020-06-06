@@ -19,6 +19,7 @@ import Typography from "@material-ui/core/Typography";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
 import {withRouter} from "react-router";
+import {DrawerNavigationComponent, TopNavigationComponent} from "../Navigation";
 
 const useStyles = makeStyles((theme) => createStyles({
 
@@ -75,10 +76,12 @@ export const TopBar = compose(withWidth(), withRouter)(
                         </IconButton>
                         <Typography>SachOMD</Typography>
                     </Toolbar>
+
                     <Drawer
                         open={state.left}
                         onClose={toggleDrawer('left', false)}
                     >
+                        <DrawerNavigationComponent {...props.navigation}/>
                         <List>
                             {
                                 props.links.map(
@@ -134,6 +137,11 @@ export const TopBar = compose(withWidth(), withRouter)(
         {
             !xs &&
             <div className={classNames.topBar}>
+                <Toolbar>
+                    <TopNavigationComponent
+                        {...props.navigation}
+                    />
+                </Toolbar>
                 <div style={{display: 'flex', margin: '0 auto', padding:'8px 16px', maxWidth: '1032px'}}>
 
                     {

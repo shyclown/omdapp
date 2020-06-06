@@ -2,14 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fb08ba2-1598-4317-a5cb-7338b84238ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/navigation/Navigation.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/types/ItemType.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/redux/actions/items.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/redux/actions/navigations.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/redux/reducers/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/redux/reducers/items.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/redux/reducers/navigations.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/resources/items.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/content/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/content/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/navigation/Navigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/top/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/top/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,13 +52,14 @@
     <property name="ts.external.directory.path" value="C:\Users\TheForce\Desktop\omdapp\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\TheForce\Desktop\omdapp\src\components" />
+      <recent name="C:\Users\TheForce\Desktop\omdapp\src\utils\config" />
+      <recent name="C:\Users\TheForce\Desktop\omdapp\src\components\content" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\TheForce\Desktop\omdapp\src\utils\config" />
       <recent name="C:\Users\TheForce\Desktop\omdapp\src\components" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\TheForce\Desktop\omdapp\src\utils\config" />
-      <recent name="C:\Users\TheForce\Desktop\omdapp\src\components\content" />
     </key>
   </component>
   <component name="RunManager" selected="npm.npm start">
@@ -141,6 +143,7 @@
       <workItem from="1591212525334" duration="2156000" />
       <workItem from="1591290636408" duration="7437000" />
       <workItem from="1591376443494" duration="10890000" />
+      <workItem from="1591429978230" duration="9667000" />
     </task>
     <task id="LOCAL-00001" summary="workspace">
       <created>1582222638727</created>
