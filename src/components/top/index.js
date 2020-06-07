@@ -83,21 +83,20 @@ export const TopBar = compose(withWidth(), withRouter)(
                     >
                         <DrawerNavigationComponent {...props.navigation}/>
                         <List>
-                            {
-                                props.links.map(
-                                    (link) => <ListItem
-                                    button
-                                    key={link.id}
-                                    onClick={() => {
-                                    setState(
-                                        {left: false});
-                                    }}
-                                >
-                                    <ListItemIcon><HomeIcon/></ListItemIcon>
-                                    <ListItemText primary={link.entity.title}/>
-                                </ListItem>)
-                            }
-
+                        {
+                            [].map(
+                                (link) => <ListItem
+                                button
+                                key={link.id}
+                                onClick={() => {
+                                setState(
+                                    {left: false});
+                                }}
+                            >
+                                <ListItemIcon><HomeIcon/></ListItemIcon>
+                                <ListItemText primary={link.entity.title}/>
+                            </ListItem>)
+                        }
                         {
                             [].map(
                                 (link, index) => <ListItem button
@@ -142,10 +141,11 @@ export const TopBar = compose(withWidth(), withRouter)(
                         {...props.navigation}
                     />
                 </Toolbar>
-                <div style={{display: 'flex', margin: '0 auto', padding:'8px 16px', maxWidth: '1032px'}}>
+                {
+                false && <div style={{display: 'flex', margin: '0 auto', padding:'8px 16px', maxWidth: '1032px'}}>
 
                     {
-                        props.links && props.links.map(
+                        [].map(
                             (link) => {
 
                                 return <Button
@@ -178,6 +178,7 @@ export const TopBar = compose(withWidth(), withRouter)(
                     <div style={{flexGrow: 1}}></div>
                     <span>HLADAJ</span>
                 </div>
+                }
             </div>
         }
     </div>

@@ -2,16 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fb08ba2-1598-4317-a5cb-7338b84238ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/utils/redux/actions/items.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/redux/actions/navigations.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/redux/reducers/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/redux/reducers/items.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/redux/reducers/navigations.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/resources/items.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/redux/store.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/navigation/Navigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/top/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/top/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/redux/actions/navigations.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/redux/actions/navigations.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/redux/reducers/navigations.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/redux/reducers/navigations.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,6 +144,7 @@
       <workItem from="1591290636408" duration="7437000" />
       <workItem from="1591376443494" duration="10890000" />
       <workItem from="1591429978230" duration="9667000" />
+      <workItem from="1591514797524" duration="6784000" />
     </task>
     <task id="LOCAL-00001" summary="workspace">
       <created>1582222638727</created>

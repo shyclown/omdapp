@@ -8,7 +8,7 @@ import {
 
 const initialState = {
     navigations: {},
-    loadingNavigations: [],
+    loadingNavigations: false,
 };
 
 export default (state = initialState, action) => {
@@ -18,23 +18,17 @@ export default (state = initialState, action) => {
         case LOAD_NAVIGATION:
             return {
                 ...state,
-                loadingNavigations: [
-                    ...state.loadingItems,
-                    action.payload.id
-                ],
+                loadingNavigations: true,
             };
 
         case LOAD_NAVIGATION_SUCCESS: {
 
-            const navigation = action.payload.data;
+            const navigations = action.payload.data;
 
             return {
                 ...state,
-                navigations: {
-                    ...state.navigations,
-                    [navigation.name]: navigation
-                },
-                loadingNavigations: state.loadingNavigations.filter(i => i !== navigation.id),
+                navigations: navigations,
+                loadingNavigations: false,
             };
         }
         case LOAD_NAVIGATION_ERR:

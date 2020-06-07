@@ -6,21 +6,20 @@ import UniversalPanel from "./universal/UniversalPanel";
 import {ThemeProvider} from "@material-ui/core/styles";
 import {HashRouter as Router, Link, Switch, Route, Redirect} from "react-router-dom";
 
-
 import theme from './style/theme';
-
-
 import {links} from "./utils/mock";
 import {Content} from "./components/content";
 
 import {TopBar} from "./components/top";
 import {BottomBar} from "./components/footer";
 import {loadNavigations} from "./utils/resources/navigations";
-import Button from "@material-ui/core/Button";
 
-console.log(config)
+import {connect} from "react-redux";
+import {compose} from "redux";
+import {loadNavigationsAction} from "./utils/redux/actions/navigations";
 
 const gapi = window.gapi;
+
 const CLIENT_ID = "664742009776-n23slos09r4qseo5pbjic6qo1bd3qe0i.apps.googleusercontent.com";
 const API_KEY = "AIzaSyAJ0tl16XnnSPVbx1XRinN2OKCXcfDB9Fk";
 const DISCOVERY_DOCS = ["https://sheets.googleapis.com/$discovery/rest?version=v4"];
@@ -71,12 +70,14 @@ export class Navigation {
 
 const createLink = (str) => str.split(' ').join('_');
 
-function App() {
+function App (props) {
 
 
     const [navigations, setNavigations] = useState(null)
 
     useEffect(() => {
+        console.log(props.navigations);
+        props.loadNavigationsAction();
         !navigations && loadNavigations().then((data)=>{
             console.log(data);
             setNavigations(data)
@@ -132,4 +133,12 @@ function App() {
     );
 }
 
-export default App;
+const mapStateToProps = (state, ownProps) => ({
+    navigations: state.navigations.navigations
+});
+
+export default compose(connect(
+    mapStateToProps, {
+        loadNavigationsAction
+    }
+))(App);
