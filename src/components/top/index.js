@@ -9,6 +9,8 @@ import IconButton from "@material-ui/core/IconButton";
 
 import {isWidthUp} from "@material-ui/core";
 
+import logo from '../../assets/logo/logo_textless.svg';
+
 import Drawer from '@material-ui/core/Drawer';
 import {List} from "@material-ui/core";
 import ListItem from "@material-ui/core/ListItem";
@@ -22,13 +24,17 @@ import {withRouter} from "react-router";
 import {DrawerNavigationComponent, TopNavigationComponent} from "../Navigation";
 
 const useStyles = makeStyles((theme) => createStyles({
-
+    logo: {
+        fill: theme.palette.secondary.light,
+    },
     toolbar: {
         backgroundColor: theme.palette.primary.main,
-        color:'white'
+       //  color:'white',
+        color: theme.palette.secondary.light,
     },
     topBar: {
-      backgroundColor: theme.palette.primary.light,
+        backgroundColor: theme.palette.primary.light,
+        color: theme.palette.secondary.light,
     },
 
     link: {
@@ -74,6 +80,7 @@ export const TopBar = compose(withWidth(), withRouter)(
                         <IconButton onClick={toggleDrawer('left', true)}>
                             <MenuIcon style={{color: 'white'}}/>
                         </IconButton>
+                        <img src={logo}/>
                         <Typography>SachOMD</Typography>
                     </Toolbar>
 
@@ -125,6 +132,9 @@ export const TopBar = compose(withWidth(), withRouter)(
                 }}>
 
                     <Toolbar disableGutters classes={{root: classNames.toolbar}}>
+                        <div style={{padding:"4px"}} className={classNames.logo}>
+                            <img width={56} src={logo}/>
+                        </div>
                         <Typography variant={'h5'} style={{color:'white'}}>Šachomd, Motto</Typography>
                         <div style={{flexGrow: 1}}></div>
                         <span>EN / SK</span>

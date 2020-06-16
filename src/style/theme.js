@@ -4,7 +4,7 @@ import {blue, green, grey, orange, purple, yellow} from "@material-ui/core/color
 const theme = createMuiTheme({
     typography: {
         button: {
-            textTransform: 'none'
+            textTransform: 'none',
         },
         h5: {
             fontFamily: 'Roboto',
@@ -37,14 +37,14 @@ const theme = createMuiTheme({
 
         primary: {
             dark:blue["900"],//'#051c44',
-            main: blue["800"],// '#082962',
-            light:blue["300"],//'#7cb6e0'
+            main: blue["800"],// '#002963',// blue["800"],// '#082962',
+            light: '#78B6E4', //blue["300"],//'#7cb6e0'
             contrastText:'white',
         },
         secondary: {
-            dark: orange['800'],//'#af7d25',
-            main: orange['600'],//'#fab336',
-            light:orange['300'],//'#fbc25e',
+            dark: '#af7d25',
+            main: '#fab336',
+            light:'#fbc25e',
         }
     }
 });

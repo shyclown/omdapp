@@ -22,9 +22,6 @@ const getLinkEntities : (arg0: NavigationItem) => LinkEntity[] | false = (naviga
     return linkEntities;
 }
 
-
-
-
 const TopNavigation : React.FunctionComponent<NavigationItem & RouteComponentProps> = (props) => {
 
     const linkEntities : LinkEntity[] | false = getLinkEntities(props);

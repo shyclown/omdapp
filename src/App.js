@@ -88,6 +88,7 @@ function App (props) {
     const topNavigation = navigations && navigations.find(
         nav => nav.entity.name === 'topNavigation'
     );
+
     console.log(topNavigation)
     const topNavigationLinks = topNavigation ? Navigation.links(topNavigation) : [];
 

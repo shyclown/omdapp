@@ -2,16 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fb08ba2-1598-4317-a5cb-7338b84238ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/utils/redux/store.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/logo/logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/logo/logo_textless.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Article.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Article.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Navigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/top/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/top/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/redux/actions/navigations.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/redux/actions/navigations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/redux/reducers/navigations.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/redux/reducers/navigations.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/theme.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,13 +51,15 @@
     <property name="ts.external.directory.path" value="C:\Users\TheForce\Desktop\omdapp\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\TheForce\Desktop\omdapp\src\components" />
-      <recent name="C:\Users\TheForce\Desktop\omdapp\src\utils\config" />
-      <recent name="C:\Users\TheForce\Desktop\omdapp\src\components\content" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\TheForce\Desktop\omdapp\src\utils\config" />
+      <recent name="C:\Users\TheForce\Desktop\omdapp\src\components" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\TheForce\Desktop\omdapp\src\assets\logo" />
+      <recent name="C:\Users\TheForce\Desktop\omdapp\src\assets" />
+      <recent name="C:\Users\TheForce\Desktop\omdapp\public\logo" />
+      <recent name="C:\Users\TheForce\Desktop\omdapp\public\assets" />
       <recent name="C:\Users\TheForce\Desktop\omdapp\src\components" />
     </key>
   </component>
@@ -145,6 +146,15 @@
       <workItem from="1591376443494" duration="10890000" />
       <workItem from="1591429978230" duration="9667000" />
       <workItem from="1591514797524" duration="6784000" />
+      <workItem from="1591628023943" duration="1198000" />
+      <workItem from="1591712582201" duration="598000" />
+      <workItem from="1591805860560" duration="599000" />
+      <workItem from="1591882995674" duration="599000" />
+      <workItem from="1591972786713" duration="599000" />
+      <workItem from="1592034219730" duration="1197000" />
+      <workItem from="1592116396876" duration="1195000" />
+      <workItem from="1592230449761" duration="1316000" />
+      <workItem from="1592319860539" duration="4030000" />
     </task>
     <task id="LOCAL-00001" summary="workspace">
       <created>1582222638727</created>
@@ -165,6 +175,16 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -275,7 +295,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/Article.js</url>
-          <line>53</line>
+          <line>52</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
