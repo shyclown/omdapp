@@ -7,7 +7,7 @@ import Article from "../../components/Article";
 import Toolbar from "@material-ui/core/Toolbar";
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
-import bg from "./bg.png";
+import bg from "../../assets/images/figurky_clipped.jpg";
 import Typography from "@material-ui/core/Typography";
 import {compose} from "redux";
 
@@ -67,6 +67,7 @@ export const Content =  compose(withWidth())(
         <div style={{
             width: '100%',
             height: '250px',
+            backgroundSize: 'cover',
             backgroundImage: `url(${bg})`,
             position: 'relative',
 

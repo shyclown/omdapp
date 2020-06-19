@@ -125,7 +125,6 @@ function App (props) {
                                     key={linkItem.id}
                                     path={'/'+createLink(linkItem.entity.name)}
                                 >
-                                    {linkItem.id}
                                     <Content linkItem={linkItem} link={linkItem.entity.name}/>
                                 </Route>
                             )
