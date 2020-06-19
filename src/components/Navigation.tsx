@@ -6,25 +6,24 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import { compose } from "redux";
 import {withRouter, RouteComponentProps} from "react-router";
 
+
 const getNavigationItemEntity : (arg0: NavigationItem) => NavigationEntity = (navigationItem) => {
     return navigationItem.entity;
 }
 const getLinkItems : (arg0: NavigationItem) => LinkItem[] | false = (navigationItem) => {
     return navigationItem.entity && navigationItem.entity.elements;
 }
-const getLinkEntities : (arg0: NavigationItem) => LinkEntity[] | false = (navigationItem) => {
 
-    const linkEntities : LinkEntity[] =
-        navigationItem.entity &&
-        navigationItem.entity.elements &&
-        navigationItem.entity.elements.map( (link : LinkItem) => link.entity )
-    ;
+const getLinkEntities : (arg0: NavigationItem) => LinkEntity[] | false = (navigationItem: NavigationItem) => {
+    console.log(navigationItem);
+    const elements : LinkItem[] | undefined = navigationItem && navigationItem.elements;
+    const linkEntities : LinkEntity[] = elements && elements.map( (link : LinkItem) => link.entity);
     return linkEntities;
 }
 
-const TopNavigation : React.FunctionComponent<NavigationItem & RouteComponentProps> = (props) => {
+const TopNavigation : React.FunctionComponent<{ navigation: NavigationItem } & RouteComponentProps> = (props) => {
 
-    const linkEntities : LinkEntity[] | false = getLinkEntities(props);
+    const linkEntities : LinkEntity[] | false = getLinkEntities(props.navigation);
 
     return <Grid
         container
@@ -43,11 +42,10 @@ const TopNavigation : React.FunctionComponent<NavigationItem & RouteComponentPro
 
 export const TopNavigationComponent = withRouter(TopNavigation);
 
-const DrawerNavigation : React.FunctionComponent<NavigationItem & RouteComponentProps> = (props) => {
+const DrawerNavigation : React.FunctionComponent<{ navigation: NavigationItem } & RouteComponentProps> = (props) => {
 
-    const navigationEntity : NavigationEntity | false = getNavigationItemEntity(props);
-    const linkItems : LinkItem[] | false = getLinkItems(props);
-    const linkEntities : LinkEntity[] | false = getLinkEntities(props);
+
+    const linkEntities : LinkEntity[] | false = getLinkEntities(props.navigation);
 
     return <List>{
         linkEntities &&

@@ -29,8 +29,8 @@ const useStyles = makeStyles((theme) => createStyles({
     },
     toolbar: {
         backgroundColor: theme.palette.primary.main,
-       //  color:'white',
-        color: theme.palette.secondary.light,
+        color:'white',
+        // color: theme.palette.secondary.light,
     },
     topBar: {
         backgroundColor: theme.palette.primary.light,
@@ -80,15 +80,15 @@ export const TopBar = compose(withWidth(), withRouter)(
                         <IconButton onClick={toggleDrawer('left', true)}>
                             <MenuIcon style={{color: 'white'}}/>
                         </IconButton>
-                        <img src={logo}/>
-                        <Typography>SachOMD</Typography>
+                        <img height={30} src={logo}/>
+                        <Typography style={{marginLeft: '16px'}}>SachOMD</Typography>
                     </Toolbar>
 
                     <Drawer
                         open={state.left}
                         onClose={toggleDrawer('left', false)}
                     >
-                        <DrawerNavigationComponent {...props.navigation}/>
+                        <DrawerNavigationComponent navigation={props.navigation}/>
                         <List>
                         {
                             [].map(
@@ -133,7 +133,7 @@ export const TopBar = compose(withWidth(), withRouter)(
 
                     <Toolbar disableGutters classes={{root: classNames.toolbar}}>
                         <div style={{padding:"4px"}} className={classNames.logo}>
-                            <img width={56} src={logo}/>
+                            <img height={30} src={logo}/>
                         </div>
                         <Typography variant={'h5'} style={{color:'white'}}>Šachomd, Motto</Typography>
                         <div style={{flexGrow: 1}}></div>
@@ -148,7 +148,7 @@ export const TopBar = compose(withWidth(), withRouter)(
             <div className={classNames.topBar}>
                 <Toolbar>
                     <TopNavigationComponent
-                        {...props.navigation}
+                        navigation={props.navigation}
                     />
                 </Toolbar>
                 {

@@ -28,18 +28,20 @@ export interface EntityWithElements extends Entity{
 }
 
 export default interface NavigationItem extends Item{
-    entity_type: 'navigation'
+    entity_type: 'navigation';
+    elements: LinkItem[];
     entity: NavigationEntity;
 }
 export interface NavigationEntity extends EntityWithElements{
     elements: LinkItem[];
 }
 export interface LinkItem extends Item{
-    entity_type: 'link'
+    entity_type: 'link';
+    elements: PageItem[];
     entity: LinkEntity;
 }
 export interface LinkEntity extends EntityWithElements{
-    elements: PageItem[];
+
     url?: string;
 }
 export interface PageItem extends Item{

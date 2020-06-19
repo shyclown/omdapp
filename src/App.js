@@ -60,11 +60,18 @@ export class Navigation {
 
 
     static getEntity = (item) => item ? item.entity : false;
-    static getElements = (entity) => entity ? entity.elements : false;
+    static getElements = (item) => item ? item.elements : false;
 
-    static links = (navigation) => Navigation.getElements(Navigation.getEntity(navigation)) || [];
-    static linkEntity = (link) => Navigation.getEntity(link);
-    static pageItem = (linkEntity) => linkEntity.elements[0];
+
+
+    static links = (navigation) => {
+        console.log(navigation);
+        console.log(Navigation.getElements(navigation));
+
+        return Navigation.getElements(navigation) || [];
+    }
+    // static linkEntity = (link) => Navigation.getEntity(link);
+    // static pageItem = (linkEntity) => linkEntity.elements[0];
 }
 
 
@@ -85,11 +92,7 @@ function App (props) {
     });
 
 
-    const topNavigation = navigations && navigations.find(
-        nav => nav.entity.name === 'topNavigation'
-    );
-
-    console.log(topNavigation)
+    const topNavigation = navigations && navigations.find( nav => nav.entity.name === 'topNavigation' );
     const topNavigationLinks = topNavigation ? Navigation.links(topNavigation) : [];
 
     console.log(topNavigationLinks);
