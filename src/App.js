@@ -17,6 +17,9 @@ import {loadNavigations} from "./utils/resources/navigations";
 import {connect} from "react-redux";
 import {compose} from "redux";
 import {loadNavigationsAction} from "./utils/redux/actions/navigations";
+import {createLink} from "./utils/greateLink";
+
+import history from './utils/history';
 
 const gapi = window.gapi;
 
@@ -74,9 +77,6 @@ export class Navigation {
     // static pageItem = (linkEntity) => linkEntity.elements[0];
 }
 
-
-const createLink = (str) => str.split(' ').join('_');
-
 function App (props) {
 
 
@@ -98,7 +98,7 @@ function App (props) {
     console.log(topNavigationLinks);
 
     return (
-        <Router>
+        <Router history={history}>
 
             <ThemeProvider theme={theme}>
 
@@ -114,10 +114,22 @@ function App (props) {
                     />
                 }
                 content={
-                    <div style={{ backgroundColor: '#eeeeee'}}>
-                    <Redirect
-                        to={createLink(links[0])}
-                    />
+
+                    topNavigation && <div style={{ backgroundColor: '#eeeeee'}}>
+                        <Switch>
+                        {
+                            topNavigation &&
+                            topNavigation.elements &&
+                            topNavigation.elements.map(
+                                (linkItem) => <Route
+                                    key={linkItem.id}
+                                    path={'/'+createLink(linkItem.entity.name)}
+                                >
+                                    {linkItem.id}
+                                    <Content linkItem={linkItem} link={linkItem.entity.name}/>
+                                </Route>
+                            )
+                        }
 
                     { links.map( (link, i) =>
                         <Route
@@ -127,6 +139,10 @@ function App (props) {
                              <Content link={link}/>
                         </Route>
                     )}
+                        <Redirect
+                            to={createLink(links[0])}
+                        />
+                        </Switch>
                     </div>
                 }
                 footer={<BottomBar/>}

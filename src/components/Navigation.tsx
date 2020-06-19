@@ -5,14 +5,8 @@ import HomeIcon from "@material-ui/icons/Home";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import { compose } from "redux";
 import {withRouter, RouteComponentProps} from "react-router";
+import createLink from "../utils/greateLink";
 
-
-const getNavigationItemEntity : (arg0: NavigationItem) => NavigationEntity = (navigationItem) => {
-    return navigationItem.entity;
-}
-const getLinkItems : (arg0: NavigationItem) => LinkItem[] | false = (navigationItem) => {
-    return navigationItem.entity && navigationItem.entity.elements;
-}
 
 const getLinkEntities : (arg0: NavigationItem) => LinkEntity[] | false = (navigationItem: NavigationItem) => {
     console.log(navigationItem);
@@ -20,6 +14,7 @@ const getLinkEntities : (arg0: NavigationItem) => LinkEntity[] | false = (naviga
     const linkEntities : LinkEntity[] = elements && elements.map( (link : LinkItem) => link.entity);
     return linkEntities;
 }
+
 
 const TopNavigation : React.FunctionComponent<{ navigation: NavigationItem } & RouteComponentProps> = (props) => {
 
@@ -33,7 +28,7 @@ const TopNavigation : React.FunctionComponent<{ navigation: NavigationItem } & R
         linkEntities.map(
             (entity : LinkEntity) => <Button
                 key={entity.name}
-                onClick={() => props.history.push(entity.name)} >{
+                onClick={() => props.history.push(createLink(entity.name))} >{
                 entity.title
             }</Button>
         )
@@ -44,7 +39,6 @@ export const TopNavigationComponent = withRouter(TopNavigation);
 
 const DrawerNavigation : React.FunctionComponent<{ navigation: NavigationItem } & RouteComponentProps> = (props) => {
 
-
     const linkEntities : LinkEntity[] | false = getLinkEntities(props.navigation);
 
     return <List>{
@@ -52,10 +46,12 @@ const DrawerNavigation : React.FunctionComponent<{ navigation: NavigationItem } 
         linkEntities.map(
             (entity : LinkEntity) => <ListItem
                 button
-                onClick={() => props.history.push(entity.name)}
+                onClick={() => props.history.push(createLink(entity.name))}
                 key={entity.id}
             >
-                <ListItemIcon><HomeIcon/></ListItemIcon>
+                <ListItemIcon>
+                    <HomeIcon/>
+                </ListItemIcon>
                 <ListItemText
                     primary={entity.title}
                 />

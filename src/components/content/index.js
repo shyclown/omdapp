@@ -81,13 +81,17 @@ export const Content =  compose(withWidth())(
                 }}
                 >
                     <Typography variant={xs ? 'h3' : 'h2'}>
-                        {props.link === 'Domov' ? 'Vitaj' : props.link}
+                        {
+                            props.linkItem &&
+                            props.linkItem.entity &&
+                            props.linkItem.entity.title || "Vitaj"
+                        }
                     </Typography>
                 </div>
             </div>
         </div>
         <div style={{display: 'flex', margin: '0 auto', maxWidth: '1000px', padding: '8px'}}>
-            <ContentWrap/>
+            <ContentWrap linkItem={props.linkItem}/>
             <SidePanel/>
         </div>
 
