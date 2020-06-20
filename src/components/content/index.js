@@ -1,15 +1,16 @@
-import React from "react";
+import React, {useEffect} from "react";
 import LoremIpsum from "../../utils/lorem";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {createStyles, isWidthDown, withWidth} from "@material-ui/core";
 import {SidePanel} from "../side";
-import Article from "../../components/Article";
-import Toolbar from "@material-ui/core/Toolbar";
-import Grid from "@material-ui/core/Grid";
-import Card from "@material-ui/core/Card";
+
 import bg from "../../assets/images/figurky_clipped.jpg";
 import Typography from "@material-ui/core/Typography";
 import {compose} from "redux";
+import Article from "../entities/Article";
+import withEntityData from "../entities/withEntityData";
+import Gallery from "../entities/Gallery";
+import {Page} from "../entities/Page";
 
 const useStyles = makeStyles((theme) => createStyles({
     divider: {
@@ -58,10 +59,18 @@ const useStyles = makeStyles((theme) => createStyles({
     },
 
 }));
+
 export const Content =  compose(withWidth())(
     (props) => {
+
     const classNames = useStyles();
     const xs = isWidthDown('xs', props.width);
+
+    useEffect(()=>{
+        console.log(props);
+    });
+
+    const pageItem =  props.linkItem && props.linkItem.elements && props.linkItem.elements[0];
 
     return <div className={classNames.content}>
         <div style={{
@@ -76,6 +85,7 @@ export const Content =  compose(withWidth())(
                 <div style={{
                     position: 'absolute',
                     bottom: '16px',
+                    paddingLeft:'16px',
                     fontSize: '3rem',
                     fontWeight: '500',
                     color: 'white'
@@ -92,72 +102,13 @@ export const Content =  compose(withWidth())(
             </div>
         </div>
         <div style={{display: 'flex', margin: '0 auto', maxWidth: '1000px', padding: '8px'}}>
-            <ContentWrap linkItem={props.linkItem}/>
+
+                {
+                    pageItem && <Page pageItem={pageItem} itemId={pageItem.id}/>
+                }
+
             <SidePanel/>
         </div>
 
     </div>
 });
-
-export const ContentWrap = () => {
-    const classNames = useStyles();
-    return (
-        <div style={{
-            flexGrow: 1,
-            }}
-        >
-          <Grid container spacing={2}>
-            <Grid item xs={12} >
-                  <Article/>
-            </Grid>
-              <Grid item xs={12} >
-              <Card elevation={0} className={classNames.divider}>
-                  <Toolbar variant={'dense'}>
-                      28.1.2020
-                  </Toolbar>
-              </Card>
-
-              </Grid>
-              <Grid item xs={12}>
-                  <Article/>
-              </Grid>
-              <Grid item xs={12}>
-                  <Article/>
-              </Grid>
-              <Grid item xs={12}>
-                  <Article/>
-              </Grid>
-
-          </Grid>
-
-
-        </div>
-    );
-};
-export const ContentItem = (props) => {
-
-    const classNames = useStyles();
-
-
-    return <div className={classNames.contentItem}>
-        { props.hasImage && <div className={classNames.contentItemImage}>Content Image</div> }
-        <div>
-
-            <div className={classNames.contentItemTop}>Rubrika</div>
-            <div>
-                <div className={classNames.contentItemHeader}>Header</div>
-                <LoremIpsum sentences={8}/>
-                <div className={classNames.contentItemInfo}>
-
-                    <div style={{flexGrow: 1}}></div>
-                    Cely Clanok
-                </div>
-            </div>
-        </div>
-    </div>;
-};
-
-export const ContentItemDateSeparator = (props) => {
-    const classNames = useStyles();
-    return <div className={classNames.contentItemDateSeparator}>{props.date}</div>
-};

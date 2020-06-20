@@ -1,13 +1,14 @@
 export interface Item {
+    id: number;
+    elements: Item[];
     item: number;
-    tags: any[];
     deleted_at: string;
     created_at: string;
     updated_at: string;
     user_id: number;
     parent_folder_id: number;
     status: number | string;
-    entity: Entity | EntityWithElements;
+    entity: Entity;
     entity_id: number;
     entity_type: string;
     pivot?: {
@@ -15,6 +16,14 @@ export interface Item {
         item_id: number,
         order: number,
     }
+    tags: any[];
+}
+
+export interface ArticleEntity extends Entity{
+    text: string;
+}
+export interface GalleryEntity extends Entity{
+    description: string;
 }
 
 export interface Entity {
@@ -23,24 +32,24 @@ export interface Entity {
     title: string;
 }
 
-export interface EntityWithElements extends Entity{
-    elements: any[];
+
+export default interface NavigationItem extends Item {
+    entity_type: 'navigation';
+    entity: NavigationEntity;
+    elements: LinkItem[];
 }
 
-export default interface NavigationItem extends Item{
-    entity_type: 'navigation';
-    elements: LinkItem[];
-    entity: NavigationEntity;
+export interface NavigationEntity extends Entity {
+
 }
-export interface NavigationEntity extends EntityWithElements{
-    elements: LinkItem[];
-}
-export interface LinkItem extends Item{
+
+export interface LinkItem extends Item {
     entity_type: 'link';
     elements: PageItem[];
     entity: LinkEntity;
 }
-export interface LinkEntity extends EntityWithElements{
+
+export interface LinkEntity extends Entity {
 
     url?: string;
 }

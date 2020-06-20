@@ -9,14 +9,15 @@ import createLink from "../utils/greateLink";
 
 
 const getLinkEntities : (arg0: NavigationItem) => LinkEntity[] | false = (navigationItem: NavigationItem) => {
-    console.log(navigationItem);
     const elements : LinkItem[] | undefined = navigationItem && navigationItem.elements;
     const linkEntities : LinkEntity[] = elements && elements.map( (link : LinkItem) => link.entity);
     return linkEntities;
 }
 
 
-const TopNavigation : React.FunctionComponent<{ navigation: NavigationItem } & RouteComponentProps> = (props) => {
+const TopNavigation :
+    React.FunctionComponent<{ navigation: NavigationItem } & RouteComponentProps> =
+    (props) => {
 
     const linkEntities : LinkEntity[] | false = getLinkEntities(props.navigation);
 

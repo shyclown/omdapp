@@ -1,4 +1,4 @@
-import config from './config';
+
 import axios from 'axios';
 
 // import {auth} from 'utils/auth';
@@ -8,8 +8,6 @@ const axiosConfig = {
     headers: {'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8' }
     //headers: {'Authorisation' : 'aaa' }
 };
-
-console.log(axiosConfig);
 
 
 export const axiosInstance = axios.create(axiosConfig);

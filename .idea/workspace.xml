@@ -2,9 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fb08ba2-1598-4317-a5cb-7338b84238ca" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/Space.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/UniversalCenteredLoader.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/entities/Article.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/entities/Gallery.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/entities/Image.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/entities/Page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/entities/withEntityData.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/resources/files.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/content/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/content/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/top/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/top/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/redux/actions/items.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/redux/actions/items.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/redux/reducers/items.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/redux/reducers/items.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/redux/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/resources/items.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/resources/items.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/types/ItemType.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/types/ItemType.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,6 +31,13 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -33,7 +58,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/utils/config" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/entities" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -45,16 +70,17 @@
     <property name="ts.external.directory.path" value="C:\Users\TheForce\Desktop\omdapp\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\TheForce\Desktop\omdapp\src\components\entities" />
+      <recent name="C:\Users\TheForce\Desktop\omdapp\src\utils\config" />
+      <recent name="C:\Users\TheForce\Desktop\omdapp\src\components" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\TheForce\Desktop\omdapp\src\assets\images" />
       <recent name="C:\Users\TheForce\Desktop\omdapp\src\assets\logo" />
       <recent name="C:\Users\TheForce\Desktop\omdapp\src\assets" />
       <recent name="C:\Users\TheForce\Desktop\omdapp\public\logo" />
       <recent name="C:\Users\TheForce\Desktop\omdapp\public\assets" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\TheForce\Desktop\omdapp\src\utils\config" />
-      <recent name="C:\Users\TheForce\Desktop\omdapp\src\components" />
     </key>
   </component>
   <component name="RunManager" selected="npm.npm start">
@@ -151,7 +177,8 @@
       <workItem from="1592319860539" duration="4548000" />
       <workItem from="1592406913654" duration="598000" />
       <workItem from="1592490642172" duration="3270000" />
-      <workItem from="1592576522813" duration="8062000" />
+      <workItem from="1592576522813" duration="8243000" />
+      <workItem from="1592638540075" duration="26036000" />
     </task>
     <task id="LOCAL-00001" summary="workspace">
       <created>1582222638727</created>
@@ -188,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592585773379</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fix navigation">
+      <created>1592587179374</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1592587179374</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,10 +270,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="fix navigation" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1006" y="170" key="CommitChangelistDialog2" timestamp="1592585772824">
+    <state x="1006" y="170" key="CommitChangelistDialog2" timestamp="1592587178686">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state x="1006" y="170" key="CommitChangelistDialog2/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1592585772824" />
+    <state x="1006" y="170" key="CommitChangelistDialog2/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1592587178686" />
     <state width="1246" height="320" key="GridCell.Tab.0.bottom" timestamp="1591389222019">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
@@ -304,18 +338,22 @@
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
     <state width="1020" height="396" key="GridCell.Tab.3.right/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1591385951004" />
-    <state x="972" y="316" key="Vcs.Push.Dialog.v2" timestamp="1592585775171">
+    <state x="92" y="92" width="1736" height="976" key="VCS.FileHistoryDialog" timestamp="1592680643413">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state x="972" y="316" key="Vcs.Push.Dialog.v2/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1592585775171" />
+    <state x="92" y="92" width="1736" height="976" key="VCS.FileHistoryDialog/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1592680643413" />
+    <state x="972" y="316" key="Vcs.Push.Dialog.v2" timestamp="1592587182161">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state x="972" y="316" key="Vcs.Push.Dialog.v2/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1592587182161" />
     <state x="235" y="405" key="com.intellij.ide.util.TipDialog" timestamp="1586873343279">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
     <state x="235" y="405" key="com.intellij.ide.util.TipDialog/0.0.1920.1160@0.0.1920.1160" timestamp="1586873343279" />
-    <state x="1147" y="313" width="585" height="534" key="find.popup" timestamp="1591290786712">
+    <state x="1147" y="313" width="585" height="534" key="find.popup" timestamp="1592685587363">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state x="1147" y="313" width="585" height="534" key="find.popup/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1591290786712" />
+    <state x="1147" y="313" width="585" height="534" key="find.popup/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1592685587363" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -324,6 +362,12 @@
           <url>file://$PROJECT_DIR$/src/components/Article.js</url>
           <line>52</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/entities/Article.tsx</url>
+          <line>37</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

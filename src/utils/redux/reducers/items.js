@@ -26,12 +26,13 @@ export default (state = initialState, action) => {
 
         case LOAD_ITEM_SUCCESS: {
 
-            const item = action.payload.data;
+            console.log(action);
+            const item = action.payload;
 
             return {
                 ...state,
-                itemsInFolder: {
-                    ...state.itemsInFolder,
+                items: {
+                    ...state.items,
                     [item.id]: item
                 },
                 loadingItems: state.loadingItems.filter(i => i !== item.id),
