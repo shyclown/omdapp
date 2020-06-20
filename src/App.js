@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
 
-import config from "./utils/config";
 import UniversalPanel from "./universal/UniversalPanel";
 import {ThemeProvider} from "@material-ui/core/styles";
 import {HashRouter as Router, Link, Switch, Route, Redirect} from "react-router-dom";
@@ -61,20 +60,10 @@ gapi.client.init({
 
 export class Navigation {
 
-
-    static getEntity = (item) => item ? item.entity : false;
     static getElements = (item) => item ? item.elements : false;
-
-
-
     static links = (navigation) => {
-        console.log(navigation);
-        console.log(Navigation.getElements(navigation));
-
         return Navigation.getElements(navigation) || [];
     }
-    // static linkEntity = (link) => Navigation.getEntity(link);
-    // static pageItem = (linkEntity) => linkEntity.elements[0];
 }
 
 function App (props) {
@@ -86,7 +75,6 @@ function App (props) {
         console.log(props.navigations);
         props.loadNavigationsAction();
         !navigations && loadNavigations().then((data)=>{
-            console.log(data);
             setNavigations(data)
         });
     });
@@ -95,7 +83,6 @@ function App (props) {
     const topNavigation = navigations && navigations.find( nav => nav.entity.name === 'topNavigation' );
     const topNavigationLinks = topNavigation ? Navigation.links(topNavigation) : [];
 
-    console.log(topNavigationLinks);
 
     return (
         <Router history={history}>

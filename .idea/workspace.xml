@@ -2,27 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fb08ba2-1598-4317-a5cb-7338b84238ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Space.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/UniversalCenteredLoader.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/entities/Article.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/entities/Gallery.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/entities/Image.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/entities/Page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/entities/withEntityData.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/resources/files.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/content/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/content/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/top/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/top/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/redux/actions/items.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/redux/actions/items.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/redux/reducers/items.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/redux/reducers/items.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/redux/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/resources/items.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/resources/items.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/types/ItemType.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/types/ItemType.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +158,7 @@
       <workItem from="1592406913654" duration="598000" />
       <workItem from="1592490642172" duration="3270000" />
       <workItem from="1592576522813" duration="8243000" />
-      <workItem from="1592638540075" duration="26036000" />
+      <workItem from="1592638540075" duration="26396000" />
     </task>
     <task id="LOCAL-00001" summary="workspace">
       <created>1582222638727</created>
@@ -222,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592587179374</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="fix navigation">
+      <created>1592688576734</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1592688576734</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,10 +257,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="fix navigation" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1006" y="170" key="CommitChangelistDialog2" timestamp="1592587178686">
+    <state x="1006" y="170" key="CommitChangelistDialog2" timestamp="1592688576022">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state x="1006" y="170" key="CommitChangelistDialog2/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1592587178686" />
+    <state x="1006" y="170" key="CommitChangelistDialog2/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1592688576022" />
     <state width="1246" height="320" key="GridCell.Tab.0.bottom" timestamp="1591389222019">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
@@ -342,10 +329,10 @@
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
     <state x="92" y="92" width="1736" height="976" key="VCS.FileHistoryDialog/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1592680643413" />
-    <state x="972" y="316" key="Vcs.Push.Dialog.v2" timestamp="1592587182161">
+    <state x="972" y="316" key="Vcs.Push.Dialog.v2" timestamp="1592688578378">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state x="972" y="316" key="Vcs.Push.Dialog.v2/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1592587182161" />
+    <state x="972" y="316" key="Vcs.Push.Dialog.v2/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1592688578378" />
     <state x="235" y="405" key="com.intellij.ide.util.TipDialog" timestamp="1586873343279">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
