@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fb08ba2-1598-4317-a5cb-7338b84238ca" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Pagination.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/entities/ShowImage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/content/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/content/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/entities/Gallery.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/entities/Gallery.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/entities/Image.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/entities/Image.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/entities/Page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/entities/Page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +44,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/entities" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -50,17 +56,17 @@
     <property name="ts.external.directory.path" value="C:\Users\TheForce\Desktop\omdapp\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\TheForce\Desktop\omdapp\src\components\entities" />
-      <recent name="C:\Users\TheForce\Desktop\omdapp\src\utils\config" />
-      <recent name="C:\Users\TheForce\Desktop\omdapp\src\components" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\TheForce\Desktop\omdapp\src\assets\images" />
       <recent name="C:\Users\TheForce\Desktop\omdapp\src\assets\logo" />
       <recent name="C:\Users\TheForce\Desktop\omdapp\src\assets" />
       <recent name="C:\Users\TheForce\Desktop\omdapp\public\logo" />
       <recent name="C:\Users\TheForce\Desktop\omdapp\public\assets" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\TheForce\Desktop\omdapp\src\components" />
+      <recent name="C:\Users\TheForce\Desktop\omdapp\src\components\entities" />
+      <recent name="C:\Users\TheForce\Desktop\omdapp\src\utils\config" />
     </key>
   </component>
   <component name="RunManager" selected="npm.npm start">
@@ -159,6 +165,7 @@
       <workItem from="1592490642172" duration="3270000" />
       <workItem from="1592576522813" duration="8243000" />
       <workItem from="1592638540075" duration="26396000" />
+      <workItem from="1592724694516" duration="24154000" />
     </task>
     <task id="LOCAL-00001" summary="workspace">
       <created>1582222638727</created>
@@ -353,7 +360,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/entities/Article.tsx</url>
           <line>37</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

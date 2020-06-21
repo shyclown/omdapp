@@ -102,10 +102,12 @@ export const Content =  compose(withWidth())(
             </div>
         </div>
         <div style={{display: 'flex', margin: '0 auto', maxWidth: '1000px', padding: '8px'}}>
+            <div style={{flexGrow:'1'}}>
 
                 {
                     pageItem && <Page pageItem={pageItem} itemId={pageItem.id}/>
                 }
+            </div>
 
             <SidePanel/>
         </div>
