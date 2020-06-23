@@ -1,4 +1,4 @@
-import React, {Component, ComponentClass, ComponentProps, createRef} from "react";
+import React, {Component, ComponentProps, createRef} from "react";
 import {GalleryEntity, Item} from "../../utils/types/ItemType";
 
 import {compose} from "redux";
@@ -12,15 +12,11 @@ import {
     DialogContent,
     DialogActions,
     withStyles,
-    makeStyles,
     createStyles
 } from "@material-ui/core";
 import ImageContent from "./Image";
-import Grid from "@material-ui/core/Grid";
 import {ChevronLeft, ChevronRight} from "@material-ui/icons";
-import { getImageSrc } from "../../utils/resources/files";
-import CardMedia from "@material-ui/core/CardMedia";
-import ShowImage from "./ShowImage";
+
 
 export interface GalleryItem extends Item {
     entity_type: 'article';

@@ -1,5 +1,3 @@
-
-import axios from "./../api";
 import config from "./../config/index";
 
 

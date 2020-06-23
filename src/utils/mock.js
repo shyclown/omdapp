@@ -1,3 +1,13 @@
 
 
-export const links = ['Domov', 'O nas', 'Fotogaleria', 'Sponzori', 'Podoporuju nas', 'Ipca', 'Ssz', 'Odkazy', 'Kontakt'];
+export const links = [
+    'Domov',
+    'O nas',
+    'Fotogaleria',
+    'Sponzori',
+    'Podoporuju nas',
+    'Ipca',
+    'Ssz',
+    'Odkazy',
+    'Kontakt'
+];

@@ -6,6 +6,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import { compose } from "redux";
 import {withRouter, RouteComponentProps} from "react-router";
 import createLink from "../utils/greateLink";
+import ListSubheader from "@material-ui/core/ListSubheader";
 
 
 const getLinkEntities : (arg0: NavigationItem) => LinkEntity[] | false = (navigationItem: NavigationItem) => {
@@ -29,7 +30,7 @@ const TopNavigation :
         linkEntities.map(
             (entity : LinkEntity) => <Button
                 key={entity.name}
-                onClick={() => props.history.push(createLink(entity.name))} >{
+                onClick={() => props.history.push(createLink('/'+entity.name))} >{
                 entity.title
             }</Button>
         )
@@ -47,7 +48,7 @@ const DrawerNavigation : React.FunctionComponent<{ navigation: NavigationItem } 
         linkEntities.map(
             (entity : LinkEntity) => <ListItem
                 button
-                onClick={() => props.history.push(createLink(entity.name))}
+                onClick={() => props.history.push(createLink('/'+entity.name))}
                 key={entity.id}
             >
                 <ListItemIcon>
@@ -62,3 +63,39 @@ const DrawerNavigation : React.FunctionComponent<{ navigation: NavigationItem } 
 };
 
 export const DrawerNavigationComponent = withRouter(DrawerNavigation);
+
+
+const SideNavigation : React.FunctionComponent<{ navigation: NavigationItem } & RouteComponentProps> = (props) => {
+
+    const linkEntities : LinkEntity[] | false = getLinkEntities(props.navigation);
+
+    return <List
+            subheader={
+                <ListSubheader component="div">
+                    {
+                        props.navigation &&
+                        props.navigation.entity &&
+                        props.navigation.entity.title
+                    }
+                </ListSubheader>
+            }
+    >{
+        linkEntities &&
+        linkEntities.map(
+            (entity : LinkEntity) => <ListItem
+                button
+                onClick={() => props.history.push(createLink('/'+entity.name))}
+                key={entity.id}
+            >
+
+
+
+                <ListItemText
+                    primary={entity.title}
+                />
+            </ListItem>
+        )
+    }</List>
+};
+
+export const SideNavigationComponent = withRouter(SideNavigation);

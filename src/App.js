@@ -7,12 +7,10 @@ import {HashRouter as Router, Link, Switch, Route, Redirect} from "react-router-
 
 import theme from './style/theme';
 import {links} from "./utils/mock";
-import {Content} from "./components/content";
+import Content from "./components/content";
 
 import {TopBar} from "./components/top";
 import {BottomBar} from "./components/footer";
-import {loadNavigations} from "./utils/resources/navigations";
-
 import {connect} from "react-redux";
 import {compose} from "redux";
 import {loadNavigationsAction} from "./utils/redux/actions/navigations";
@@ -59,7 +57,7 @@ gapi.client.init({
 });
 
 export class Navigation {
-
+    static entity = (navigation)=> navigation.entity;
     static getElements = (item) => item ? item.elements : false;
     static links = (navigation) => {
         return Navigation.getElements(navigation) || [];
@@ -68,20 +66,19 @@ export class Navigation {
 
 function App (props) {
 
+    const [load, setLoad] = useState(true);
 
-    const [navigations, setNavigations] = useState(null)
 
     useEffect(() => {
-        console.log(props.navigations);
-        props.loadNavigationsAction();
-        !navigations && loadNavigations().then((data)=>{
-            setNavigations(data)
-        });
+
+        load && props.loadNavigationsAction();
+        setLoad(false);
+
     });
 
-
-    const topNavigation = navigations && navigations.find( nav => nav.entity.name === 'topNavigation' );
+    const topNavigation = props.navigations && props.navigations.find(nav => nav.entity.name === 'topNavigation');
     const topNavigationLinks = topNavigation ? Navigation.links(topNavigation) : [];
+
 
 
     return (
@@ -101,33 +98,25 @@ function App (props) {
                     />
                 }
                 content={
-
-                    topNavigation && <div style={{ backgroundColor: '#eeeeee'}}>
+                    topNavigationLinks && <div style={{ backgroundColor: '#eeeeee'}}>
                         <Switch>
                         {
-                            topNavigation &&
-                            topNavigation.elements &&
-                            topNavigation.elements.map(
-                                (linkItem) => <Route
-                                    key={linkItem.id}
-                                    path={'/'+createLink(linkItem.entity.name)}
-                                >
-                                    <Content linkItem={linkItem} link={linkItem.entity.name}/>
-                                </Route>
+                            props.navigations && props.navigations.map (
+                                (navigation) => navigation.elements && navigation.elements.map(
+                                    (linkItem) => (
+                                        <Route
+                                            key={linkItem.id}
+                                            path={'/'+createLink(linkItem.entity.name)}
+                                        >
+                                            <Content linkItem={linkItem} link={linkItem.entity.name}/>
+                                        </Route>
+                                    )
+                                )
                             )
                         }
-
-                    { links.map( (link, i) =>
-                        <Route
-                            key={i}
-                            path={'/'+createLink(link)}
-                        >
-                             <Content link={link}/>
+                        <Route path={'/item/:itemType/:itemId'}>
+                            <Content linkItem={{}} link={'name'}/>
                         </Route>
-                    )}
-                        <Redirect
-                            to={createLink(links[0])}
-                        />
                         </Switch>
                     </div>
                 }

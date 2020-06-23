@@ -6,22 +6,16 @@ import UniversalCenteredLoader from "../UniversalCenteredLoader";
 
 function withEntityData(WrappedComponent: any, selectData?: any) {
 
-
-
     class WithEntityData extends React.Component<{items: any, itemId: number} & ComponentClass> {
         constructor(props: any) {
             super(props);
+            console.log(props);
             props.loadItemAction(props.itemId);
-        }
-
-        componentDidMount() {
-        }
-
-        componentWillUnmount() {
         }
 
         render() {
             const {items, itemId} = this.props;
+            console.log(this.props);
 
             return (
                 items && items[itemId] ?

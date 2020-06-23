@@ -1,6 +1,5 @@
-import React, {PropsWithChildren, useEffect, useRef, useState} from "react";
+import React, {PropsWithChildren, useRef, useState} from "react";
 import {getImageSrc} from "../../utils/resources/files";
-import {Simulate} from "react-dom/test-utils";
 import UniversalCenteredLoader from "../UniversalCenteredLoader";
 
 export {};

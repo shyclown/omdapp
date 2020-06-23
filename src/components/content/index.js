@@ -1,18 +1,21 @@
-import React, {useEffect} from "react";
-import LoremIpsum from "../../utils/lorem";
-import makeStyles from "@material-ui/core/styles/makeStyles";
+import React, {Component} from "react";
+
 import {createStyles, isWidthDown, withWidth} from "@material-ui/core";
 import {SidePanel} from "../side";
 
 import bg from "../../assets/images/figurky_clipped.jpg";
 import Typography from "@material-ui/core/Typography";
 import {compose} from "redux";
-import Article from "../entities/Article";
-import withEntityData from "../entities/withEntityData";
-import Gallery from "../entities/Gallery";
 import {Page} from "../entities/Page";
+import {connect} from "react-redux";
+import {loadNavigationsAction} from "../../utils/redux/actions/navigations";
+import {withRouter} from "react-router";
+import {loadItemAction} from "../../utils/redux/actions/items";
+import Article from "../entities/Article";
+import Gallery from "../entities/Gallery";
+import withStyles from "@material-ui/core/styles/withStyles";
 
-const useStyles = makeStyles((theme) => createStyles({
+const styles = (theme) => createStyles({
     divider: {
       backgroundColor: theme.color.grey.light,
     },
@@ -58,59 +61,102 @@ const useStyles = makeStyles((theme) => createStyles({
         marginTop: '0.2rem'
     },
 
-}));
+});
 
-export const Content =  compose(withWidth())(
-    (props) => {
+class Content extends Component {
 
-    const classNames = useStyles();
-    const xs = isWidthDown('xs', props.width);
+    state = {
+        itemType: null,
+        itemId: null,
+        xs: null,
+        pageItem: null,
+    }
 
-    useEffect(()=>{
-        console.log(props);
-    });
+    constructor(props) {
+        super(props);
+        this.state = {
+            itemType: props.match.params.itemType,
+            itemId: props.match.params.itemId,
+            xs: isWidthDown('xs', props.width),
+            pageItem:  props.linkItem && props.linkItem.elements && props.linkItem.elements[0],
+        }
+    }
 
-    const pageItem =  props.linkItem && props.linkItem.elements && props.linkItem.elements[0];
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        console.log(nextProps.match.params);
+        return true;
+    }
 
-    return <div className={classNames.content}>
-        <div style={{
-            width: '100%',
-            height: '250px',
-            backgroundSize: 'cover',
-            backgroundImage: `url(${bg})`,
-            position: 'relative',
 
-        }}>
-            <div style={{display: 'flex', margin: '0 auto', maxWidth: '1000px'}}>
-                <div style={{
-                    position: 'absolute',
-                    bottom: '16px',
-                    paddingLeft:'16px',
-                    fontSize: '3rem',
-                    fontWeight: '500',
-                    color: 'white'
-                }}
-                >
-                    <Typography variant={xs ? 'h3' : 'h2'}>
-                        {
-                            props.linkItem &&
-                            props.linkItem.entity &&
-                            props.linkItem.entity.title || "Vitaj"
-                        }
-                    </Typography>
+    render() {
+
+        const {classes, linkItem} = this.props;
+        const {xs, itemType, itemId, pageItem} = this.state;
+
+        return <div className={classes.content}>
+            <div style={{
+                width: '100%',
+                height: '250px',
+                backgroundSize: 'cover',
+                backgroundImage: `url(${bg})`,
+                position: 'relative',
+
+            }}>
+                <div style={{display: 'flex', margin: '0 auto', maxWidth: '1000px'}}>
+                    <div style={{
+                        position: 'absolute',
+                        bottom: '16px',
+                        paddingLeft: '16px',
+                        fontSize: '3rem',
+                        fontWeight: '500',
+                        color: 'white'
+                    }}
+                    >
+                        <Typography variant={xs ? 'h3' : 'h2'}>
+                            {
+                                linkItem &&
+                                linkItem.entity &&
+                                linkItem.entity.title ||
+                                'Vitaj'
+                            }
+                        </Typography>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div style={{display: 'flex', margin: '0 auto', maxWidth: '1000px', padding: '8px'}}>
-            <div style={{flexGrow:'1'}}>
+            <div style={{
+                display: 'flex',
+                margin: '0 auto',
+                maxWidth: '1000px',
+                padding: '8px'
+            }}>
+                <div style={{flexGrow: '1'}}>
+                    {!itemType && pageItem && <Page itemId={pageItem.id}/>}
+                    {itemType === 'page' && <Page key={itemId} itemId={itemId}/>}
+                    {itemType === 'article' && <Article key={itemId} itemId={itemId}/>}
+                    {itemType === 'gallery' && <Gallery key={itemId} itemId={itemId}/>}
+                </div>
 
-                {
-                    pageItem && <Page pageItem={pageItem} itemId={pageItem.id}/>
-                }
+                <SidePanel/>
             </div>
 
-            <SidePanel/>
         </div>
+    }
+};
 
-    </div>
+const mapStateToProps = (state, ownProps) => ({
+    navigations: state.navigations.navigations,
+    items: state.items.items
 });
+
+export default compose(
+    withStyles(styles),
+    withWidth(),
+    withRouter,
+    connect(
+        mapStateToProps,
+        {
+            loadNavigationsAction,
+            loadItemAction
+        }
+    )
+)(Content);

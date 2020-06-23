@@ -16,17 +16,17 @@ export default (state = initialState, action) => {
     switch (action.type) {
 
         case LOAD_ITEM:
+
             return {
                 ...state,
                 loadingItems: [
                     ...state.loadingItems,
-                    action.payload.id
+                    action.payload
                 ],
             };
 
         case LOAD_ITEM_SUCCESS: {
 
-            console.log(action);
             const item = action.payload;
 
             return {

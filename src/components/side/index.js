@@ -1,21 +1,13 @@
 import React from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {createStyles, isWidthDown, ListItemIcon} from "@material-ui/core";
+import {createStyles, isWidthDown} from "@material-ui/core";
 import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import List from "@material-ui/core/List";
-import ListItemText from "@material-ui/core/ListItemText";
-import ListItem from "@material-ui/core/ListItem";
-import ListSubheader from "@material-ui/core/ListSubheader";
-import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import withWidth from "@material-ui/core/withWidth";
 import {compose} from "redux";
+import {connect} from "react-redux";
 
-
-
-import {Info as InfoIcon} from '@material-ui/icons';
-import {SupervisorAccount as SponsorIcon} from '@material-ui/icons';
+import {SideNavigationComponent} from "../Navigation";
 
 const useStyles = makeStyles((theme) => createStyles({
     sidePanelItemsLink: {
@@ -41,28 +33,25 @@ const useStyles = makeStyles((theme) => createStyles({
         }
     }
 }));
-const SidePanelItemsLabel = (props) => {
-    const classNames = useStyles();
-    return <div className={classNames.sidePanelItemsLabel}>{props.label}</div>
-};
-const SidePanelItemLink = (props) => {
-    const classNames = useStyles();
-    return <div className={classNames.sidePanelItemsLink}>{props.label}</div>
-};
 
-const InfoLinks = [
-    {name: 'news', title: 'Novinky', icon: ''},
-    {name: 'archive', title: 'Archiv', icon: ''}
-];
+const mapStateToProps = (state, ownProps) => ({
+    navigations: state.navigations.navigations
+});
 
-export const SidePanel = compose(withWidth())(
-    (props) => {
-
+export const SidePanel = compose(
+    withWidth(),
+    connect(mapStateToProps, {})
+)((
+    props
+) => {
     const xs = isWidthDown('xs', props.width);
     const classNames = useStyles();
+    const infoNavigation = props.navigations && props.navigations.find(nav => nav.entity.name === 'sideInfoNavigation');
+    const chessNavigation = props.navigations && props.navigations.find(nav => nav.entity.name === 'sideChessNavigation');
+    const eventsNavigation = props.navigations && props.navigations.find(nav => nav.entity.name === 'sideEventsNavigation');
 
     if(xs) { return null; }
-    return <div
+    return props.navigations && <div
         style={{
             minWidth: '200px',
             maxWidth:'200px',
@@ -72,124 +61,19 @@ export const SidePanel = compose(withWidth())(
         <Grid container spacing={1}>
             <Grid item xs={12}>
                 <Card elevation={0}>
-
-                    <List
-
-                        subheader={
-                            <ListSubheader
-                                component="div"
-                            >
-                                Informacie
-                            </ListSubheader>}
-                    >
-
-                        <ListItem button>
-                            <Typography>
-                                Novinky
-                            </Typography>
-                        </ListItem>
-                        <ListItem button>
-                            <Typography>
-                                Archiv
-                            </Typography>
-                        </ListItem>
-                    </List>
-
-
-                </Card>
-            </Grid>
-
-            <Grid item xs={12}>
-                <Card elevation={0}>
-
-                    <List
-
-                        subheader={
-                            <ListSubheader
-                                component="div"
-                            >
-                                Sachy
-                            </ListSubheader>}
-                    >
-                        {
-                            [
-                                'Zahraj si',
-                                'Sachove videa',
-                                'Nasi Sachisti',
-                                'Historia klubu',
-                                'Odkazy'
-                            ].map((link, index) => <ListItem key={index} button>
-                                <ListItemText primary={link}/>
-                            </ListItem>)
-                        }
-
-                    </List>
-
-
+                    <SideNavigationComponent navigation={infoNavigation}/>
                 </Card>
             </Grid>
             <Grid item xs={12}>
                 <Card elevation={0}>
-
-                    <List
-                        subheader={
-                            <ListSubheader
-                                component="div"
-                            >
-                                OMD Dystro Ope-net
-                            </ListSubheader>}
-                    >
-                        {
-                            [
-                                'INFO',
-                                '2018',
-                                '2017',
-                                '2016'
-                            ].map((link,index) => <ListItem key={index} button>
-                                <ListItemText primary={link}/>
-                            </ListItem>)
-                        }
-
-                    </List>
-
-
+                    <SideNavigationComponent navigation={chessNavigation}/>
                 </Card>
             </Grid>
-
             <Grid item xs={12}>
                 <Card elevation={0}>
-
-                    <List
-                        subheader={
-                            <React.Fragment>
-
-                            </React.Fragment>
-                        }
-                    >
-                        <ListSubheader component="div">
-                            Sponzori
-                        </ListSubheader>
-                        {
-                            [
-
-                            ].map(link => <ListItem button>
-                                <ListItemText primary={link}/>
-                            </ListItem>)
-                        }
-
-                    </List>
-
-
+                    <SideNavigationComponent navigation={eventsNavigation}/>
                 </Card>
             </Grid>
-
         </Grid>
-
-
-
-
-
-
-
     </div>
 });

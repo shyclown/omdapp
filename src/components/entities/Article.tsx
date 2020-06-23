@@ -1,4 +1,4 @@
-import React, {Component, ComponentClass, ComponentProps} from "react";
+import React, {Component, ComponentProps} from "react";
 import {ArticleEntity, Item} from "../../utils/types/ItemType";
 
 import {compose} from "redux";

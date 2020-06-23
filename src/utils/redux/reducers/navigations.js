@@ -7,7 +7,7 @@ import {
 
 
 const initialState = {
-    navigations: {},
+    navigations: [],
     loadingNavigations: false,
 };
 
@@ -23,7 +23,7 @@ export default (state = initialState, action) => {
 
         case LOAD_NAVIGATION_SUCCESS: {
 
-            const navigations = action.payload.data;
+            const navigations = action.payload;
 
             return {
                 ...state,

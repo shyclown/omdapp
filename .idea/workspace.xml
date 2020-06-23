@@ -2,13 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fb08ba2-1598-4317-a5cb-7338b84238ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Pagination.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/entities/ShowImage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/content/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/content/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/entities/Article.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/entities/Article.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/entities/Gallery.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/entities/Gallery.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/entities/Image.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/entities/Image.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/entities/Page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/entities/Page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/entities/withEntityData.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/entities/withEntityData.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/side/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/side/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/top/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/top/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/theme.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/mock.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/mock.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/redux/actions/items.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/redux/actions/items.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/redux/actions/navigations.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/redux/actions/navigations.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/redux/reducers/items.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/redux/reducers/items.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/redux/reducers/navigations.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/redux/reducers/navigations.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/redux/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/resources/files.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/resources/files.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +176,9 @@
       <workItem from="1592490642172" duration="3270000" />
       <workItem from="1592576522813" duration="8243000" />
       <workItem from="1592638540075" duration="26396000" />
-      <workItem from="1592724694516" duration="24154000" />
+      <workItem from="1592724694516" duration="25059000" />
+      <workItem from="1592839188762" duration="1570000" />
+      <workItem from="1592927400681" duration="11984000" />
     </task>
     <task id="LOCAL-00001" summary="workspace">
       <created>1582222638727</created>
@@ -216,7 +229,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592688576734</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="page and gallery updates">
+      <created>1592765402847</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1592765402848</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,13 +281,14 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="workspace" />
     <MESSAGE value="fix navigation" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix navigation" />
+    <MESSAGE value="page and gallery updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="page and gallery updates" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1006" y="170" key="CommitChangelistDialog2" timestamp="1592688576022">
+    <state x="1006" y="170" key="CommitChangelistDialog2" timestamp="1592765402172">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state x="1006" y="170" key="CommitChangelistDialog2/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1592688576022" />
+    <state x="1006" y="170" key="CommitChangelistDialog2/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1592765402172" />
     <state width="1246" height="320" key="GridCell.Tab.0.bottom" timestamp="1591389222019">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
@@ -336,10 +357,10 @@
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
     <state x="92" y="92" width="1736" height="976" key="VCS.FileHistoryDialog/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1592680643413" />
-    <state x="972" y="316" key="Vcs.Push.Dialog.v2" timestamp="1592688578378">
+    <state x="972" y="316" key="Vcs.Push.Dialog.v2" timestamp="1592765405036">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state x="972" y="316" key="Vcs.Push.Dialog.v2/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1592688578378" />
+    <state x="972" y="316" key="Vcs.Push.Dialog.v2/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1592765405036" />
     <state x="235" y="405" key="com.intellij.ide.util.TipDialog" timestamp="1586873343279">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
