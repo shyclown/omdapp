@@ -6,7 +6,7 @@ import UniversalCenteredLoader from "../UniversalCenteredLoader";
 
 function withEntityData(WrappedComponent: any, selectData?: any) {
 
-    class WithEntityData extends React.Component<{items: any, itemId: number} & ComponentClass> {
+    class WithEntityData extends React.Component<{items: any, itemId: number, perex?: boolean} & ComponentClass> {
         constructor(props: any) {
             super(props);
             console.log(props);

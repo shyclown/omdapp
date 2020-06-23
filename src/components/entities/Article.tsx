@@ -1,9 +1,13 @@
-import React, {Component, ComponentProps} from "react";
+import React, {Component, ComponentProps, createRef, ReactChild} from "react";
 import {ArticleEntity, Item} from "../../utils/types/ItemType";
 
 import {compose} from "redux";
 import withEntityData from "./withEntityData";
-import {Card, CardContent, CardHeader} from "@material-ui/core";
+import {Card, CardContent, CardHeader, Button} from "@material-ui/core";
+import CardActions from "@material-ui/core/CardActions";
+import Spacer from "../Space";
+import { withRouter,} from "react-router";
+import createLink from "../../utils/greateLink";
 
 export interface ArticleItem extends Item {
     entity_type: 'article';
@@ -12,10 +16,37 @@ export interface ArticleItem extends Item {
 
 interface IProps extends ComponentProps<any>{
     item: ArticleItem,
+    perex?: boolean | undefined,
     loadItemAction?: (id?: any) => Promise<any>;
 }
 
 class Article extends Component<IProps, any> {
+
+    content = createRef<HTMLDivElement>()
+
+    state = {
+        perexContent: ''
+    }
+
+    constructor(props:IProps) {
+        super(props);
+    }
+
+    makePerex = (text: string) => {
+        const temp = document.createElement('div');
+        const result = document.createElement('div');
+        temp.innerHTML = text;
+        Array.from(temp.childNodes).forEach((v, i) => {
+            if (i < 10) {
+                result.appendChild(v);
+            }
+        })
+        this.setState({perexContent: result.innerHTML});
+    }
+
+    componentDidMount() {
+        this.makePerex(this.props.item.entity.text);
+    }
 
     shouldComponentUpdate(
         nextProps: Readonly<IProps>,
@@ -26,14 +57,23 @@ class Article extends Component<IProps, any> {
     }
 
     render() {
-        const {item} = this.props;
+        const {item, perex, history} = this.props;
+        const {perexContent} = this.state;
         return(
             <div>
                 <Card elevation={0} >
                     <CardHeader title={item.entity.name}/>
                     <CardContent>
-                        <div dangerouslySetInnerHTML={{__html: item.entity.text}} />
+                        <div ref={this.content} dangerouslySetInnerHTML={{__html: perex ? perexContent : item.entity.text}} />
                     </CardContent>
+                    {
+                        item && perex && <CardActions>
+                            <Spacer/>
+                            <Button onClick={()=>{
+                                history.push(createLink('/item/'+item.entity_type+'/'+item.id))
+                            }}>Celý článok</Button>
+                        </CardActions>
+                    }
                 </Card>
             </div>
         );
@@ -43,5 +83,7 @@ class Article extends Component<IProps, any> {
 
 
 export default compose(
-    withEntityData
+
+    withEntityData,
+    withRouter
 )(Article);
