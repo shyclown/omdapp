@@ -4,19 +4,22 @@ import {connect} from "react-redux";
 import {loadItemAction} from "../../utils/redux/actions/items";
 import UniversalCenteredLoader from "../UniversalCenteredLoader";
 
+interface IProps {
+    items: any,
+    itemId: number,
+    single?: boolean
+}
+
 function withEntityData(WrappedComponent: any, selectData?: any) {
 
-    class WithEntityData extends React.Component<{items: any, itemId: number, perex?: boolean} & ComponentClass> {
+    class WithEntityData extends React.Component<IProps & ComponentClass> {
         constructor(props: any) {
             super(props);
-            console.log(props);
             props.loadItemAction(props.itemId);
         }
 
         render() {
             const {items, itemId} = this.props;
-            console.log(this.props);
-
             return (
                 items && items[itemId] ?
                     <WrappedComponent item={items[itemId]} {...this.props}/> :

@@ -1,8 +1,6 @@
 import React, {Component} from "react";
-
 import {createStyles, isWidthDown, withWidth} from "@material-ui/core";
 import {SidePanel} from "../side";
-
 import bg from "../../assets/images/figurky_clipped.jpg";
 import Typography from "@material-ui/core/Typography";
 import {compose} from "redux";
@@ -83,7 +81,6 @@ class Content extends Component {
     }
 
     shouldComponentUpdate(nextProps, nextState, nextContext) {
-        console.log(nextProps.match.params);
         return true;
     }
 
@@ -132,8 +129,8 @@ class Content extends Component {
                 <div style={{flexGrow: '1'}}>
                     {!itemType && pageItem && <Page itemId={pageItem.id}/>}
                     {itemType === 'page' && <Page key={itemId} itemId={itemId}/>}
-                    {itemType === 'article' && <Article key={itemId} itemId={itemId}/>}
-                    {itemType === 'gallery' && <Gallery key={itemId} itemId={itemId}/>}
+                    {itemType === 'article' && <Article single={true} key={itemId} itemId={itemId}/>}
+                    {itemType === 'gallery' && <Gallery single={true} key={itemId} itemId={itemId}/>}
                 </div>
 
                 <SidePanel/>

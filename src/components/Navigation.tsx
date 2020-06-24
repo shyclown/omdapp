@@ -1,16 +1,13 @@
-import React, {FunctionComponent} from "react";
-import NavigationItem, {LinkEntity, LinkItem, NavigationEntity} from "../utils/types/ItemType";
+import React from "react";
+import NavigationItem, {LinkEntity, LinkItem} from "../utils/types/ItemType";
 import {Button, Grid, List, ListItem, ListItemText} from "@material-ui/core";
-import HomeIcon from "@material-ui/icons/Home";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import { compose } from "redux";
 import {withRouter, RouteComponentProps} from "react-router";
 import createLink from "../utils/greateLink";
 import ListSubheader from "@material-ui/core/ListSubheader";
 import useTheme from "@material-ui/core/styles/useTheme";
 
 
-const getLinkEntities : (arg0: NavigationItem) => LinkEntity[] | false = (navigationItem: NavigationItem) => {
+export const getLinkEntities : (arg0: NavigationItem) => LinkEntity[] | false = (navigationItem: NavigationItem) => {
     const elements : LinkItem[] | undefined = navigationItem && navigationItem.elements;
     const linkEntities : LinkEntity[] = elements && elements.map( (link : LinkItem) => link.entity);
     return linkEntities;

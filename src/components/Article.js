@@ -48,7 +48,13 @@ class Article extends React.Component{
                         <CardActions>
                             <div style={{flexGrow: 1}}/>
 
-                            <Button color={"primary"} variant={'text'} size={'small'}>Cely Clanok</Button>
+                            <Button
+                                color={"primary"}
+                                variant={'text'}
+                                size={'small'}
+                            >
+                                Celý článok
+                            </Button>
                         </CardActions>
                     </div>
                 </div>

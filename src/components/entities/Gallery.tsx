@@ -30,7 +30,7 @@ export interface GalleryItem extends Item {
 interface IProps extends ComponentProps<any>{
     item: GalleryItem,
     loadItemAction?: (id?: any) => Promise<any>;
-    perex?: boolean,
+    single?: boolean,
 }
 
 const useStyles = createStyles({
@@ -53,18 +53,14 @@ class Gallery extends Component<IProps, any> {
         currentImageIndex: 0,
     }
 
-
-
     constructor(props: IProps) {
         super(props);
         this.contentRef = createRef<HTMLDivElement>()
-
     }
 
     componentDidMount() {
         const width = this.contentRef.current && this.contentRef.current.clientWidth;
         this.setState({width: width});
-
     }
 
     shouldComponentUpdate(
@@ -97,7 +93,7 @@ class Gallery extends Component<IProps, any> {
 
     render() {
 
-        const {item, perex, history} = this.props;
+        const {item, single, history} = this.props;
 
         const {
             dialog,
@@ -107,8 +103,9 @@ class Gallery extends Component<IProps, any> {
         const maxIndex = item.elements.length - 1;
         const nextIndex = currentImageIndex === maxIndex ? false : currentImageIndex + 1;
         const prevIndex = currentImageIndex === 0 ? false : currentImageIndex - 1;
+        const renderElements = single ? item.elements : [item.elements[0]];
 
-        const renderElements = perex ? [item.elements[0]] : item.elements;
+        console.log(single, renderElements);
 
         return(<div>
             <Card elevation={0} >
@@ -139,7 +136,6 @@ class Gallery extends Component<IProps, any> {
                                 onClick={this.toggleDialogAt(index)}
                             >
                                 <ImageContent itemId={imageItem.id} size={400}/>
-
                             </div>
                         })
                     }
@@ -150,7 +146,6 @@ class Gallery extends Component<IProps, any> {
                     onClose={this.toggleDialogAt(0)}
                     maxWidth={'md'}
                 >
-
                     <DialogContent style={{overflow:'hidden'}}>
                         {
                             item.elements[currentImageIndex] && <ImageContent itemId={item.elements[currentImageIndex].id} size={800}/>
@@ -161,12 +156,9 @@ class Gallery extends Component<IProps, any> {
                         <IconButton disabled={prevIndex === false} onClick={this.showIndex(prevIndex)}><ChevronLeft/></IconButton>
                         <IconButton disabled={nextIndex === false} onClick={this.showIndex(nextIndex)}><ChevronRight/></IconButton>
                     </DialogActions>
-
                 </Dialog>
-
                 {
-                    item &&
-                    perex && <CardActions>
+                    item && !single && <CardActions>
                         <Spacer/>
                         <Button
                             color={'secondary'}
@@ -180,8 +172,6 @@ class Gallery extends Component<IProps, any> {
         </div>);
     }
 }
-
-
 
 export default compose(
     withEntityData,

@@ -13,7 +13,6 @@ export const Page = withEntityData((props: {item: Item}) => {
     const [elements, setElements] = useState<any[] | undefined>(undefined)
     const [displayed, setDisplayed] = useState<any[] | undefined>(undefined);
 
-
     const select = (selectedPage: number, selectedPerPage: number) => {
         let newSet = [...props.item.elements];
         newSet = props.item.entity.name === 'fotogaleria' ? newSet : newSet.reverse();
@@ -26,7 +25,6 @@ export const Page = withEntityData((props: {item: Item}) => {
         setDisplayed(newSet);
     }
 
-
     useEffect(
         ()=> {
             if (elements === null && props.item.id && props.item.elements) {
@@ -36,10 +34,9 @@ export const Page = withEntityData((props: {item: Item}) => {
         },[props.item, page, perPage]
     )
 
-
-    const single = elements && elements.length === 1;
-
-
+    const single = !(props?.item?.elements?.length > 1);
+    console.log(props?.item?.elements?.length);
+    console.log(single);
 
     const renderPagination = () => {
         return (
@@ -73,14 +70,14 @@ export const Page = withEntityData((props: {item: Item}) => {
                     <div style={{paddingTop:'16px'}}/>
                     {
                         element.entity_type === "article" && <Article
-                            perex={!single}
+                            single={single}
                             key={element.id}
                             itemId={element.id}
                         />
                     }
                     {
                         element.entity_type === "gallery" && <Gallery
-                            perex={!single}
+                            single={single}
                             key={element.id}
                             itemId={element.id}
                         />

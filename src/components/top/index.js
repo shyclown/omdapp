@@ -77,11 +77,16 @@ export const TopBar = compose(withWidth(), withRouter)((props) => {
             {   !xs &&
                 <div style={{margin: '0 auto', maxWidth: '1032px'}}>
 
-                    <Toolbar disableGutters classes={{root: classNames.toolbar}}>
-                        <div style={{padding:"4px"}} className={classNames.logo}>
+                    <Toolbar classes={{root: classNames.toolbar}}>
+                        <div
+                            style={{padding:"4px", paddingRight:'16px'}}
+                            className={classNames.logo}
+                        >
                             <img height={30} src={logo}/>
                         </div>
-                        <Typography variant={'h5'} style={{color:'white'}}>Šachomd, Motto</Typography>
+                            <Typography variant={'h5'} style={{color:'white'}}>
+                                <b>Šach OMD</b>
+                            </Typography>
                         <Spacer/>
                     </Toolbar>
 

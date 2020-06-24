@@ -3,20 +3,20 @@ import './App.css';
 
 import UniversalPanel from "./universal/UniversalPanel";
 import {ThemeProvider} from "@material-ui/core/styles";
-import {HashRouter as Router, Link, Switch, Route, Redirect} from "react-router-dom";
+import {HashRouter as Router, Switch, Route} from "react-router-dom";
 
 import theme from './style/theme';
-import {links} from "./utils/mock";
 import Content from "./components/content";
 
 import {TopBar} from "./components/top";
-import {BottomBar} from "./components/footer";
+import BottomBar from "./components/footer";
 import {connect} from "react-redux";
 import {compose} from "redux";
 import {loadNavigationsAction} from "./utils/redux/actions/navigations";
 import {createLink} from "./utils/greateLink";
 
 import history from './utils/history';
+import withWidth, {isWidthDown} from "@material-ui/core/withWidth";
 
 const gapi = window.gapi;
 
@@ -120,7 +120,9 @@ function App (props) {
                         </Switch>
                     </div>
                 }
-                footer={<BottomBar/>}
+                footer={
+                    isWidthDown("xs", props.width) && <BottomBar/>
+                }
             />
 
             </ThemeProvider>
@@ -132,8 +134,11 @@ const mapStateToProps = (state, ownProps) => ({
     navigations: state.navigations.navigations
 });
 
-export default compose(connect(
+export default compose(
+    withWidth(),
+    connect(
     mapStateToProps, {
-        loadNavigationsAction
+        loadNavigationsAction,
+
     }
 ))(App);

@@ -16,7 +16,7 @@ export interface ArticleItem extends Item {
 
 interface IProps extends ComponentProps<any>{
     item: ArticleItem,
-    perex?: boolean | undefined,
+    single?: boolean | undefined,
     loadItemAction?: (id?: any) => Promise<any>;
 }
 
@@ -57,23 +57,29 @@ class Article extends Component<IProps, any> {
     }
 
     render() {
-        const {item, perex, history} = this.props;
+        const {item, history, single} = this.props;
         const {perexContent} = this.state;
+        const desc = item.entity.description ? item.entity.description : perexContent;
+        console.log(single)
+        const displayText = !single ? desc : item.entity.text
         return(
             <div>
                 <Card elevation={0} >
                     <CardHeader title={item.entity.name}/>
                     <CardContent>
-                        <div ref={this.content} dangerouslySetInnerHTML={{
-                            __html: perex && !item.entity.description ? perexContent : item.entity.description ? item.entity.description: item.entity.text
+                        <div
+                            ref={this.content}
+                            dangerouslySetInnerHTML={{
+                            __html: displayText
                         }} />
                     </CardContent>
                     {
-                        item &&
-                        perex && <CardActions>
+                        item && !single && <CardActions>
                             <Spacer/>
                             <Button onClick={()=>{
-                                history.push(createLink('/item/'+item.entity_type+'/'+item.id))
+                                history.push(
+                                    createLink('/item/'+item.entity_type+'/'+item.id)
+                                )
                             }}>Celý článok</Button>
                         </CardActions>
                     }
