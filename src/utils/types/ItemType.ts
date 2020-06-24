@@ -21,6 +21,7 @@ export interface Item {
 
 export interface ArticleEntity extends Entity{
     text: string;
+    description: string;
 }
 export interface GalleryEntity extends Entity{
     description: string;

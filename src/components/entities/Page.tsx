@@ -10,13 +10,17 @@ export const Page = withEntityData((props: {item: Item}) => {
 
     const [page, setPage] = useState(0);
     const [perPage, setPerPage] = useState(5);
-    const [elements, setElements] = useState<any[] | null>(null)
-    const [displayed, setDisplayed] = useState<any[]>([]);
+    const [elements, setElements] = useState<any[] | undefined>(undefined)
+    const [displayed, setDisplayed] = useState<any[] | undefined>(undefined);
 
-    const select = () => {
-        const newSet = props.item.elements.filter( (element, index) => {
-            const start = page * perPage;
-            const end = start + perPage;
+
+    const select = (selectedPage: number, selectedPerPage: number) => {
+        let newSet = [...props.item.elements];
+        newSet = props.item.entity.name === 'fotogaleria' ? newSet : newSet.reverse();
+        newSet = newSet.filter(
+            (element, index) => {
+            const start = selectedPage * selectedPerPage;
+            const end = start + selectedPerPage;
             return index >= start && index < end;
         });
         setDisplayed(newSet);
@@ -28,12 +32,12 @@ export const Page = withEntityData((props: {item: Item}) => {
             if (elements === null && props.item.id && props.item.elements) {
                 setElements(props.item.elements);
             }
-            select();
+            !displayed && select(page, perPage);
         },[props.item, page, perPage]
     )
 
 
-    const single = !(elements && elements.length > 1);
+    const single = elements && elements.length === 1;
 
 
 
@@ -46,10 +50,14 @@ export const Page = withEntityData((props: {item: Item}) => {
                 page={page}
                 rowsPerPageOptions={[1,3,5,10,15]}
                 onChangeRowsPerPage={(data: any)=>{
-                    setPerPage(data);
+                    select(0, data);
                     setPage(0);
+                    setPerPage(data);
                 }}
-                onChangePage={(data:any)=>{setPage(data)}}
+                onChangePage={(data:any)=>{
+                    select(data, perPage);
+                    setPage(data);
+                }}
                 disableAllOption
             /> : null
         )
@@ -60,7 +68,7 @@ export const Page = withEntityData((props: {item: Item}) => {
             renderPagination()
         }
         {
-            displayed.map(
+            displayed && displayed.map(
                 (element: Item) => <React.Fragment key={element.id}>
                     <div style={{paddingTop:'16px'}}/>
                     {
@@ -72,6 +80,7 @@ export const Page = withEntityData((props: {item: Item}) => {
                     }
                     {
                         element.entity_type === "gallery" && <Gallery
+                            perex={!single}
                             key={element.id}
                             itemId={element.id}
                         />

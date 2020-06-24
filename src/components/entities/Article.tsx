@@ -37,7 +37,7 @@ class Article extends Component<IProps, any> {
         const result = document.createElement('div');
         temp.innerHTML = text;
         Array.from(temp.childNodes).forEach((v, i) => {
-            if (i < 10) {
+            if (i < 5) {
                 result.appendChild(v);
             }
         })
@@ -64,10 +64,13 @@ class Article extends Component<IProps, any> {
                 <Card elevation={0} >
                     <CardHeader title={item.entity.name}/>
                     <CardContent>
-                        <div ref={this.content} dangerouslySetInnerHTML={{__html: perex ? perexContent : item.entity.text}} />
+                        <div ref={this.content} dangerouslySetInnerHTML={{
+                            __html: perex && !item.entity.description ? perexContent : item.entity.description ? item.entity.description: item.entity.text
+                        }} />
                     </CardContent>
                     {
-                        item && perex && <CardActions>
+                        item &&
+                        perex && <CardActions>
                             <Spacer/>
                             <Button onClick={()=>{
                                 history.push(createLink('/item/'+item.entity_type+'/'+item.id))

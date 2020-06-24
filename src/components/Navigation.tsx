@@ -7,6 +7,7 @@ import { compose } from "redux";
 import {withRouter, RouteComponentProps} from "react-router";
 import createLink from "../utils/greateLink";
 import ListSubheader from "@material-ui/core/ListSubheader";
+import useTheme from "@material-ui/core/styles/useTheme";
 
 
 const getLinkEntities : (arg0: NavigationItem) => LinkEntity[] | false = (navigationItem: NavigationItem) => {
@@ -22,17 +23,27 @@ const TopNavigation :
 
     const linkEntities : LinkEntity[] | false = getLinkEntities(props.navigation);
 
+    const currentPath = props.history.location.pathname;
+
+
     return <Grid
         container
         direction={"row"}
     >{
         linkEntities &&
         linkEntities.map(
-            (entity : LinkEntity) => <Button
-                key={entity.name}
-                onClick={() => props.history.push(createLink('/'+entity.name))} >{
-                entity.title
-            }</Button>
+            (entity : LinkEntity) => {
+                const path = '/'+entity.name;
+
+                return <Button
+                    variant={currentPath === path ? "contained" : undefined}
+                    color={currentPath === path ? "secondary" : undefined}
+                    key={entity.name}
+                    onClick={() => props.history.push(createLink('/'+entity.name))}
+                >{
+                    entity.title
+                }</Button>
+            }
         )
     }</Grid>
 }
@@ -42,22 +53,29 @@ export const TopNavigationComponent = withRouter(TopNavigation);
 const DrawerNavigation : React.FunctionComponent<{ navigation: NavigationItem } & RouteComponentProps> = (props) => {
 
     const linkEntities : LinkEntity[] | false = getLinkEntities(props.navigation);
+    const theme = useTheme();
+    const currentPath = props.history.location.pathname;
 
     return <List>{
         linkEntities &&
         linkEntities.map(
-            (entity : LinkEntity) => <ListItem
-                button
-                onClick={() => props.history.push(createLink('/'+entity.name))}
-                key={entity.id}
-            >
-                <ListItemIcon>
-                    <HomeIcon/>
-                </ListItemIcon>
-                <ListItemText
-                    primary={entity.title}
-                />
-            </ListItem>
+            (entity : LinkEntity) => {
+                const path = '/'+entity.name;
+                return <ListItem
+                    button
+                    style={{
+                        backgroundColor: currentPath === path ? theme.palette.secondary.main : ''
+                    }}
+                    color={currentPath === path ? "secondary" : undefined}
+                    onClick={() => props.history.push(createLink('/'+entity.name))}
+                    key={entity.id}
+                >
+
+                    <ListItemText
+                        primary={entity.title}
+                    />
+                </ListItem>
+            }
         )
     }</List>
 };

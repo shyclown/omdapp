@@ -3,9 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="0fb08ba2-1598-4317-a5cb-7338b84238ca" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Article.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Article.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/content/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/content/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/entities/Article.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/entities/Article.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/entities/Gallery.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/entities/Gallery.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/entities/Page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/entities/Page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/entities/withEntityData.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/entities/withEntityData.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/resources/items.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/resources/items.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/types/ItemType.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/types/ItemType.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,6 +170,7 @@
       <workItem from="1592724694516" duration="25059000" />
       <workItem from="1592839188762" duration="1570000" />
       <workItem from="1592927400681" duration="16427000" />
+      <workItem from="1593012618518" duration="7593000" />
     </task>
     <task id="LOCAL-00001" summary="workspace">
       <created>1582222638727</created>
@@ -368,12 +374,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/Article.js</url>
-          <line>52</line>
+          <line>45</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/entities/Article.tsx</url>
-          <line>77</line>
+          <line>80</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

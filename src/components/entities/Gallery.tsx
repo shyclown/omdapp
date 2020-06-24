@@ -12,10 +12,14 @@ import {
     DialogContent,
     DialogActions,
     withStyles,
-    createStyles
+    createStyles, Button
 } from "@material-ui/core";
 import ImageContent from "./Image";
 import {ChevronLeft, ChevronRight} from "@material-ui/icons";
+import CardActions from "@material-ui/core/CardActions";
+import Spacer from "../Space";
+import createLink from "../../utils/greateLink";
+import {withRouter} from "react-router";
 
 
 export interface GalleryItem extends Item {
@@ -26,6 +30,7 @@ export interface GalleryItem extends Item {
 interface IProps extends ComponentProps<any>{
     item: GalleryItem,
     loadItemAction?: (id?: any) => Promise<any>;
+    perex?: boolean,
 }
 
 const useStyles = createStyles({
@@ -68,7 +73,6 @@ class Gallery extends Component<IProps, any> {
         nextContext: any
     ): boolean {
         const width = this.contentRef.current && this.contentRef.current.clientWidth;
-        console.log(width);
         if (this.state.width !== width) {
             this.setState({width: width});
         }
@@ -93,7 +97,7 @@ class Gallery extends Component<IProps, any> {
 
     render() {
 
-        const {item} = this.props;
+        const {item, perex, history} = this.props;
 
         const {
             dialog,
@@ -104,7 +108,7 @@ class Gallery extends Component<IProps, any> {
         const nextIndex = currentImageIndex === maxIndex ? false : currentImageIndex + 1;
         const prevIndex = currentImageIndex === 0 ? false : currentImageIndex - 1;
 
-
+        const renderElements = perex ? [item.elements[0]] : item.elements;
 
         return(<div>
             <Card elevation={0} >
@@ -120,8 +124,8 @@ class Gallery extends Component<IProps, any> {
                         gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))"
                     }}>
                     {
-                        item.elements.map( (imageItem, index) => {
-                            return <div
+                        renderElements.map( (imageItem, index) => {
+                            return imageItem && <div
                                 key={imageItem.id}
                                 style={{
                                     margin:'8px',
@@ -148,7 +152,9 @@ class Gallery extends Component<IProps, any> {
                 >
 
                     <DialogContent style={{overflow:'hidden'}}>
-                        <ImageContent itemId={item.elements[currentImageIndex].id} size={800}/>
+                        {
+                            item.elements[currentImageIndex] && <ImageContent itemId={item.elements[currentImageIndex].id} size={800}/>
+                        }
                     </DialogContent>
 
                     <DialogActions>
@@ -157,6 +163,19 @@ class Gallery extends Component<IProps, any> {
                     </DialogActions>
 
                 </Dialog>
+
+                {
+                    item &&
+                    perex && <CardActions>
+                        <Spacer/>
+                        <Button
+                            color={'secondary'}
+                            onClick={()=>{ history.push(createLink('/item/'+item.entity_type+'/'+item.id))}}
+                        >
+                            Celý článok
+                        </Button>
+                    </CardActions>
+                }
             </Card>
         </div>);
     }
@@ -166,5 +185,6 @@ class Gallery extends Component<IProps, any> {
 
 export default compose(
     withEntityData,
-    withStyles(useStyles)
+    withStyles(useStyles),
+    withRouter,
 )(Gallery);

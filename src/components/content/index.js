@@ -117,7 +117,7 @@ class Content extends Component {
                                 linkItem &&
                                 linkItem.entity &&
                                 linkItem.entity.title ||
-                                'Vitaj'
+                                ''
                             }
                         </Typography>
                     </div>
