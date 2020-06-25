@@ -3,7 +3,7 @@ import './App.css';
 
 import UniversalPanel from "./universal/UniversalPanel";
 import {ThemeProvider} from "@material-ui/core/styles";
-import {HashRouter as Router, Switch, Route} from "react-router-dom";
+import {HashRouter as Router, Switch, Route, withRouter} from "react-router-dom";
 
 import theme from './style/theme';
 import Content from "./components/content";
@@ -17,6 +17,68 @@ import {createLink} from "./utils/greateLink";
 
 import history from './utils/history';
 import withWidth, {isWidthDown} from "@material-ui/core/withWidth";
+import Dialog from "@material-ui/core/Dialog";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogActions from "@material-ui/core/DialogActions";
+import Spacer from "./components/Space";
+import Button from "@material-ui/core/Button";
+import bg from "./assets/images/figurky_clipped.jpg";
+import Typography from "@material-ui/core/Typography";
+import {SidePanel} from "./components/side";
+import withStyles from "@material-ui/core/styles/withStyles";
+import {createStyles} from "@material-ui/core";
+import {links} from "./utils/mock";
+import {NavigationTitleComponent} from "./components/Navigation";
+
+
+const styles = (theme) => createStyles({
+    divider: {
+        // backgroundColor: theme.color.grey.light,
+    },
+    content: {
+    },
+    contentItem: {
+        display: 'flex',
+        // backgroundColor:'#444',
+        margin: '16px 0px'
+    },
+    contentItemImage: {
+        minWidth: '200px',
+        backgroundImage: `url(${bg})`,
+
+        marginRight: '24px',
+    },
+    contentItemDateSeparator: {
+        fontWeight: '500',
+        display:'flex',
+        // backgroundColor: '#81b7df',
+        backgroundColor: '#fcb436',
+        color:'black',
+        padding: '0 8px',
+        fontSize: '1rem',
+        lineHeight: '2.1rem',
+        marginTop: '1rem',
+        marginBottom: '1rem',
+    },
+    contentItemTop: {
+        color: '#fcb436',
+        fontWeight: '500',
+    },
+    contentItemInfo: {
+        display: 'flex',
+        padding: '4px 0px',
+        borderBottom: 'solid 2px #fcb436',
+        fontWeight: '500',
+    },
+    contentItemHeader: {
+        fontSize: '2rem',
+        lineHeight: '2.1rem',
+        marginBottom: '1rem',
+        marginTop: '0.2rem'
+    },
+
+});
 
 const gapi = window.gapi;
 
@@ -67,7 +129,9 @@ export class Navigation {
 function App (props) {
 
     const [load, setLoad] = useState(true);
+    const [currentItem, setCurrentItem] = useState('Vitaj');
 
+    console.log(history);
 
     useEffect(() => {
 
@@ -79,7 +143,9 @@ function App (props) {
     const topNavigation = props.navigations && props.navigations.find(nav => nav.entity.name === 'topNavigation');
     const topNavigationLinks = topNavigation ? Navigation.links(topNavigation) : [];
 
+    const xs= isWidthDown('xs', props.width);
 
+    const linkItem = '';
 
     return (
         <Router history={history}>
@@ -99,25 +165,62 @@ function App (props) {
                 }
                 content={
                     topNavigationLinks && <div style={{ backgroundColor: '#eeeeee'}}>
-                        <Switch>
-                        {
-                            props.navigations && props.navigations.map (
-                                (navigation) => navigation.elements && navigation.elements.map(
-                                    (linkItem) => (
-                                        <Route
-                                            key={linkItem.id}
-                                            path={'/'+createLink(linkItem.entity.name)}
-                                        >
-                                            <Content linkItem={linkItem} link={linkItem.entity.name}/>
-                                        </Route>
-                                    )
-                                )
-                            )
-                        }
-                        <Route path={'/item/:itemType/:itemId'}>
-                            <Content linkItem={{}} link={'name'}/>
-                        </Route>
-                        </Switch>
+                        <div className={props.classes.content}>
+                            <div style={{
+                                width: '100%',
+                                height: '250px',
+                                backgroundSize: 'cover',
+                                backgroundImage: `url(${bg})`,
+                                position: 'relative',
+
+                            }}>
+                                <div style={{display: 'flex', margin: '0 auto', maxWidth: '1000px'}}>
+                                    <div style={{
+                                        position: 'absolute',
+                                        bottom: '16px',
+                                        paddingLeft: '16px',
+                                        fontSize: '3rem',
+                                        fontWeight: '500',
+                                        color: 'white'
+                                    }}
+                                    >
+                                        <Typography variant={xs ? 'h3' : 'h2'}>
+                                            <NavigationTitleComponent navigations={props.navigations}/>
+                                        </Typography>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style={{
+                                display: 'flex',
+                                margin: '0 auto',
+                                maxWidth: '1000px',
+                                padding: '8px'
+                            }}>
+                                <Switch>
+                                    {
+                                        props.navigations && props.navigations.map (
+                                            (navigation) => navigation.elements && navigation.elements.map(
+                                                (linkItem) => (
+                                                    <Route
+                                                        key={linkItem.id}
+                                                        path={'/'+createLink(linkItem.entity.name)}
+                                                    >
+                                                        <Content
+                                                            linkItem={linkItem}
+                                                            link={linkItem.entity.name}
+                                                        />
+                                                    </Route>
+                                                )
+                                            )
+                                        )
+                                    }
+                                    <Route path={'/item/:itemType/:itemId'}>
+                                        <Content linkItem={{}} link={'name'}/>
+                                    </Route>
+                                </Switch>
+                                <SidePanel selectItem={(item) => setCurrentItem(item)}/>
+                            </div>
+                        </div>
                     </div>
                 }
                 footer={
@@ -135,10 +238,11 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 export default compose(
+    withStyles(styles),
     withWidth(),
     connect(
     mapStateToProps, {
         loadNavigationsAction,
 
-    }
-))(App);
+    }),
+)(App);

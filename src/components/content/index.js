@@ -12,6 +12,13 @@ import {loadItemAction} from "../../utils/redux/actions/items";
 import Article from "../entities/Article";
 import Gallery from "../entities/Gallery";
 import withStyles from "@material-ui/core/styles/withStyles";
+import Dialog from "@material-ui/core/Dialog";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import Grid from "@material-ui/core/Grid";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogActions from "@material-ui/core/DialogActions";
+import Spacer from "../Space";
+import Button from "@material-ui/core/Button";
 
 const styles = (theme) => createStyles({
     divider: {
@@ -90,53 +97,15 @@ class Content extends Component {
         const {classes, linkItem} = this.props;
         const {xs, itemType, itemId, pageItem} = this.state;
 
-        return <div className={classes.content}>
-            <div style={{
-                width: '100%',
-                height: '250px',
-                backgroundSize: 'cover',
-                backgroundImage: `url(${bg})`,
-                position: 'relative',
 
-            }}>
-                <div style={{display: 'flex', margin: '0 auto', maxWidth: '1000px'}}>
-                    <div style={{
-                        position: 'absolute',
-                        bottom: '16px',
-                        paddingLeft: '16px',
-                        fontSize: '3rem',
-                        fontWeight: '500',
-                        color: 'white'
-                    }}
-                    >
-                        <Typography variant={xs ? 'h3' : 'h2'}>
-                            {
-                                linkItem &&
-                                linkItem.entity &&
-                                linkItem.entity.title ||
-                                ''
-                            }
-                        </Typography>
-                    </div>
-                </div>
-            </div>
-            <div style={{
-                display: 'flex',
-                margin: '0 auto',
-                maxWidth: '1000px',
-                padding: '8px'
-            }}>
-                <div style={{flexGrow: '1'}}>
-                    {!itemType && pageItem && <Page itemId={pageItem.id}/>}
-                    {itemType === 'page' && <Page key={itemId} itemId={itemId}/>}
-                    {itemType === 'article' && <Article single={true} key={itemId} itemId={itemId}/>}
-                    {itemType === 'gallery' && <Gallery single={true} key={itemId} itemId={itemId}/>}
-                </div>
 
-                <SidePanel/>
-            </div>
-
+        return <div style={{flexGrow: '1'}}>
+            {!itemType && pageItem && <Page itemId={pageItem.id}/>}
+            {itemType === 'page' && <Page key={itemId} itemId={itemId}/>}
+            {itemType === 'article' && <Article single={true} key={itemId} itemId={itemId}/>}
+            {itemType === 'gallery' && <Gallery single={true} key={itemId} itemId={itemId}/>}
         </div>
+
     }
 };
 

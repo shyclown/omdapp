@@ -1,6 +1,6 @@
 import React from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {createStyles, isWidthDown} from "@material-ui/core";
+import {CardContent, createStyles, isWidthDown} from "@material-ui/core";
 import Card from "@material-ui/core/Card";
 import Grid from "@material-ui/core/Grid";
 import withWidth from "@material-ui/core/withWidth";
@@ -8,6 +8,13 @@ import {compose} from "redux";
 import {connect} from "react-redux";
 
 import {SideNavigationComponent} from "../Navigation";
+import Dialog from "@material-ui/core/Dialog";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import {ChessDialogs} from "../ChessDialogs";
+import MenuList from "@material-ui/core/MenuList";
+import ListSubheader from "@material-ui/core/ListSubheader";
+import List from "@material-ui/core/List";
 
 const useStyles = makeStyles((theme) => createStyles({
     sidePanelItemsLink: {
@@ -65,6 +72,32 @@ export const SidePanel = compose(
                 </Card>
             </Grid>
             <Grid item xs={12}>
+
+                    <iframe style={{
+                        borderRadius:'5px',
+                        border:'none',
+                        backgroundColor:'white',
+                        padding:'0px',
+                        margin:'0px',
+                    }} src="https://sachy.cz?display=chessboard" scrolling="no" width="200" height="200" frameBorder="0"><p>Your browser does not support
+                        iframes.</p>
+                    </iframe>
+
+            </Grid>
+            <Grid item xs={12}>
+                <Card elevation={0}>
+
+                    <List>
+                        <ListSubheader component="div">
+                            {
+                                'Hraj'
+                            }
+                        </ListSubheader>
+                        <ChessDialogs menu/>
+                    </List>
+                </Card>
+            </Grid>
+            <Grid item xs={12}>
                 <Card elevation={0}>
                     <SideNavigationComponent navigation={chessNavigation}/>
                 </Card>
@@ -74,6 +107,9 @@ export const SidePanel = compose(
                     <SideNavigationComponent navigation={eventsNavigation}/>
                 </Card>
             </Grid>
+
+
+
         </Grid>
     </div>
 });

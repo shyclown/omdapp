@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fb08ba2-1598-4317-a5cb-7338b84238ca" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/ChessDialogs.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Article.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Article.js" afterDir="false" />
@@ -11,9 +12,8 @@
       <change beforePath="$PROJECT_DIR$/src/components/entities/Article.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/entities/Article.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/entities/Gallery.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/entities/Gallery.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/entities/Page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/entities/Page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/entities/withEntityData.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/entities/withEntityData.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/footer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/top/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/top/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/side/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/side/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,6 +174,7 @@
       <workItem from="1592839188762" duration="1570000" />
       <workItem from="1592927400681" duration="16427000" />
       <workItem from="1593012618518" duration="14130000" />
+      <workItem from="1593094671209" duration="14206000" />
     </task>
     <task id="LOCAL-00001" summary="workspace">
       <created>1582222638727</created>
@@ -378,18 +379,22 @@
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
     <state x="1147" y="313" width="585" height="534" key="find.popup/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1593033801625" />
+    <state x="623" y="255" width="672" height="678" key="search.everywhere.popup" timestamp="1593109357175">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state x="623" y="255" width="672" height="678" key="search.everywhere.popup/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1593109357175" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/Article.js</url>
-          <line>45</line>
+          <line>47</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/entities/Article.tsx</url>
-          <line>86</line>
+          <line>87</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

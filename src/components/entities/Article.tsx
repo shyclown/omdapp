@@ -67,6 +67,7 @@ class Article extends Component<IProps, any> {
                 <Card elevation={0} >
                     <CardHeader title={item.entity.name}/>
                     <CardContent>
+
                         <div
                             ref={this.content}
                             dangerouslySetInnerHTML={{

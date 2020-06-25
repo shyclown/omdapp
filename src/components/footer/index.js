@@ -18,6 +18,7 @@ import {loadNavigationsAction} from "../../utils/redux/actions/navigations";
 import {getLinkEntities} from "../Navigation";
 import {withRouter} from "react-router";
 import createLink from "../../utils/greateLink";
+import {ChessDialogs} from "../ChessDialogs";
 
 
 const useStyles = makeStyles((theme) => createStyles({
@@ -80,15 +81,13 @@ console.log(infoNavigation);
                     }}
                 />
             </BottomNavigation>
-
                 <DefaultMenu
                     open={open === 'info'}
+                    chessLinks={false}
                     items={
                         getLinkEntities(infoNavigation) || []
                     }
-                    handleClose={()=>{
-                        setOpen(null)
-                    }}
+                    handleClose={()=>setOpen(null)}
                     handleClick={
                         (item)=>(e)=>{
                             props.history.push(createLink('/'+item.name))
@@ -105,6 +104,7 @@ console.log(infoNavigation);
 
                 <DefaultMenu
                     open={open === 'chess'}
+                    chessLinks={true}
                     items={
                         getLinkEntities(chessNavigation) || []
                     }
@@ -120,6 +120,7 @@ console.log(infoNavigation);
                     transformOrigin={{ vertical: "bottom", horizontal: "center" }}
                     anchorEl={anchor}
                 />
+
 
 
         </Paper>

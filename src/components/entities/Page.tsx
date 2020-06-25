@@ -35,8 +35,6 @@ export const Page = withEntityData((props: {item: Item}) => {
     )
 
     const single = !(props?.item?.elements?.length > 1);
-    console.log(props?.item?.elements?.length);
-    console.log(single);
 
     const renderPagination = () => {
         return (

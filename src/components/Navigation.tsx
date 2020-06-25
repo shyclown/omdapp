@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import NavigationItem, {LinkEntity, LinkItem} from "../utils/types/ItemType";
 import {Button, Grid, List, ListItem, ListItemText} from "@material-ui/core";
 import {withRouter, RouteComponentProps} from "react-router";
 import createLink from "../utils/greateLink";
 import ListSubheader from "@material-ui/core/ListSubheader";
 import useTheme from "@material-ui/core/styles/useTheme";
+import navigations from "../utils/redux/reducers/navigations";
 
 
 export const getLinkEntities : (arg0: NavigationItem) => LinkEntity[] | false = (navigationItem: NavigationItem) => {
@@ -114,3 +115,34 @@ const SideNavigation : React.FunctionComponent<{ navigation: NavigationItem } & 
 };
 
 export const SideNavigationComponent = withRouter(SideNavigation);
+
+
+const NavigationTitle : React.FunctionComponent<{ navigations: NavigationItem[] } & RouteComponentProps> = (props) => {
+
+    const [title, setTitle] = useState<string>('')
+    const [path, setPath] = useState<string>('')
+
+
+    useEffect(()=>{
+        const currentPath = props.history.location.pathname;
+        if (
+            (currentPath !== path) && props.navigations?.length > 0
+        ) {
+            props.navigations.forEach( nav => {
+                const links: LinkEntity[] | false = getLinkEntities(nav);
+                const found = links && links.find( (link:LinkEntity) => '/'+link.name === currentPath);
+                if (found) {
+                    setTitle(found.title)
+                }
+            });
+            setPath(currentPath);
+        }
+    })
+
+
+    return <div>{
+        title
+    }</div>
+};
+
+export const NavigationTitleComponent = withRouter(NavigationTitle);

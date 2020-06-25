@@ -105,8 +105,6 @@ class Gallery extends Component<IProps, any> {
         const prevIndex = currentImageIndex === 0 ? false : currentImageIndex - 1;
         const renderElements = single ? item.elements : [item.elements[0]];
 
-        console.log(single, renderElements);
-
         return(<div>
             <Card elevation={0} >
                 <CardHeader
