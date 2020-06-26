@@ -3,11 +3,12 @@ import {ArticleEntity, Item} from "../../utils/types/ItemType";
 
 import {compose} from "redux";
 import withEntityData from "./withEntityData";
-import {Card, CardContent, CardHeader, Button} from "@material-ui/core";
+import {Card, CardContent, CardHeader, Button, Toolbar} from "@material-ui/core";
 import CardActions from "@material-ui/core/CardActions";
 import Spacer from "../Space";
 import { withRouter,} from "react-router";
 import createLink from "../../utils/greateLink";
+import {UniversalBackButton} from "../../universal/UniversalBackButton";
 
 export interface ArticleItem extends Item {
     entity_type: 'article';
@@ -65,6 +66,9 @@ class Article extends Component<IProps, any> {
         return(
             <div>
                 <Card elevation={0} >
+                    <Toolbar>
+                        { single && <UniversalBackButton/>}
+                    </Toolbar>
                     <CardHeader title={item.entity.name}/>
                     <CardContent>
 

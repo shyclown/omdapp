@@ -1,10 +1,11 @@
 
 import axios from 'axios';
+import config from './config';
 
 // import {auth} from 'utils/auth';
 
 const axiosConfig = {
-    baseURL: 'http://api.react.localhost/', //config.API_ROOT,
+    baseURL: config.API_ROOT,
     headers: {'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8' }
     //headers: {'Authorisation' : 'aaa' }
 };

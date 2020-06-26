@@ -1,6 +1,6 @@
 import paths from './paths.json';
 import locales from './locales.json';
-const config = require(`./config.${process.env.REACT_APP_ENV || 'local'}.json`);
+const config = require(`./config.${process.env.REACT_APP_ENV}.json`);
 
 console.log(config);
 

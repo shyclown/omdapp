@@ -93,7 +93,7 @@ const SCOPES = "https://www.googleapis.com/auth/spreadsheets.readonly";
  */
 
 let loaded = null;
-
+/*
 gapi.client &&
 gapi.client.init({
     apiKey: API_KEY,
@@ -117,7 +117,7 @@ gapi.client.init({
 }, function(error) {
     // cant load
 });
-
+*/
 export class Navigation {
     static entity = (navigation)=> navigation.entity;
     static getElements = (item) => item ? item.elements : false;
