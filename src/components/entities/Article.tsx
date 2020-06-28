@@ -54,8 +54,20 @@ class Article extends Component<IProps, any> {
         this.setState({perexContent: result.innerHTML});
     }
 
+    removeImages = (text: string) => {
+        const temp = document.createElement('div');
+        const result = document.createElement('div');
+        temp.innerHTML = text;
+        const images = temp.getElementsByTagName('img');
+        for (let i = 0; i < images.length; i++) {
+            images[i]?.parentNode?.removeChild(images[i])
+        }
+        return temp.innerHTML;
+    }
+
     componentDidMount() {
         this.makePerex(this.props.item.entity.text);
+        this.removeImages(this.props.item.entity.text);
         this.attachCustomItemContent(this.content);
     }
 
@@ -100,7 +112,8 @@ class Article extends Component<IProps, any> {
     render() {
         const {item, history, single, page} = this.props;
         const {perexContent} = this.state;
-        const desc = item.entity.description ? item.entity.description : perexContent;
+
+        const desc = item.entity.description ? this.removeImages(item.entity.description) : this.removeImages(perexContent);
         console.log(single)
         const displayText = !single ? desc : item.entity.text
         return(
