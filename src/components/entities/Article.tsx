@@ -9,6 +9,12 @@ import Spacer from "../Space";
 import { withRouter,} from "react-router";
 import createLink from "../../utils/greateLink";
 import {UniversalBackButton} from "../../universal/UniversalBackButton";
+import { ChevronRight } from "@material-ui/icons";
+import moment from "moment";
+import { LocalLinkItem, ExternalLinkItem, LocalItem } from "./ArticleItem";
+import ReactDOM from "react-dom";
+import store from "../../utils/redux/store";
+import {Provider} from "react-redux";
 
 export interface ArticleItem extends Item {
     entity_type: 'article';
@@ -18,6 +24,7 @@ export interface ArticleItem extends Item {
 interface IProps extends ComponentProps<any>{
     item: ArticleItem,
     single?: boolean | undefined,
+    page?: boolean | undefined,
     loadItemAction?: (id?: any) => Promise<any>;
 }
 
@@ -47,6 +54,26 @@ class Article extends Component<IProps, any> {
 
     componentDidMount() {
         this.makePerex(this.props.item.entity.text);
+        this.attachCustomItemContent(this.content);
+    }
+
+    attachCustomItemContent = (root: any) => {
+        const customItems = root.current.getElementsByClassName('custom');
+        for (let item of customItems) {
+            item.setAttribute('contenteditable', "false");
+
+            if (item.dataset.elementType === 'external') {
+                ReactDOM.render(<Provider store={store}><ExternalLinkItem wrapper={item} isNew /></Provider>, item);
+            }
+            else if (
+                item.dataset.elementType === 'file' &&
+                ['jpeg','png', 'jpg'].includes(item.dataset.elementFileType.toLowerCase())
+            ){
+                ReactDOM.render(<Provider store={store}><LocalLinkItem wrapper={item}/></Provider>, item);
+            } else {
+                ReactDOM.render(<Provider store={store}><LocalLinkItem wrapper={item}/></Provider>, item);
+            }
+        }
     }
 
     shouldComponentUpdate(
@@ -58,17 +85,26 @@ class Article extends Component<IProps, any> {
     }
 
     render() {
-        const {item, history, single} = this.props;
+        const {item, history, single, page} = this.props;
         const {perexContent} = this.state;
         const desc = item.entity.description ? item.entity.description : perexContent;
         console.log(single)
         const displayText = !single ? desc : item.entity.text
         return(
             <div>
-                <Card elevation={0} >
-                    <Toolbar>
-                        { single && <UniversalBackButton/>}
+
+                {
+                    single && !page && <Toolbar
+                        disableGutters
+                        style={{marginBottom:'8px'}}
+                        variant={'dense'}
+                    >
+                        <UniversalBackButton/>
                     </Toolbar>
+                }
+
+                <Card elevation={0} >
+
                     <CardHeader title={item.entity.name}/>
                     <CardContent>
 
@@ -80,12 +116,15 @@ class Article extends Component<IProps, any> {
                     </CardContent>
                     {
                         item && !single && <CardActions>
+                            {moment(item.created_at).format('D.M.YYYY H:mm')}
                             <Spacer/>
                             <Button onClick={()=>{
                                 history.push(
                                     createLink('/item/'+item.entity_type+'/'+item.id)
                                 )
-                            }}>Celý článok</Button>
+                            }}>
+                                Celý článok <ChevronRight/>
+                            </Button>
                         </CardActions>
                     }
                 </Card>

@@ -1,5 +1,6 @@
 import React, {Component, ComponentProps, createRef} from "react";
 import {GalleryEntity, Item} from "../../utils/types/ItemType";
+import moment from 'moment';
 
 import {compose} from "redux";
 import withEntityData from "./withEntityData";
@@ -12,7 +13,7 @@ import {
     DialogContent,
     DialogActions,
     withStyles,
-    createStyles, Button
+    createStyles, Button, Toolbar
 } from "@material-ui/core";
 import ImageContent from "./Image";
 import {ChevronLeft, ChevronRight} from "@material-ui/icons";
@@ -20,6 +21,7 @@ import CardActions from "@material-ui/core/CardActions";
 import Spacer from "../Space";
 import createLink from "../../utils/greateLink";
 import {withRouter} from "react-router";
+import {UniversalBackButton} from "../../universal/UniversalBackButton";
 
 
 export interface GalleryItem extends Item {
@@ -30,7 +32,8 @@ export interface GalleryItem extends Item {
 interface IProps extends ComponentProps<any>{
     item: GalleryItem,
     loadItemAction?: (id?: any) => Promise<any>;
-    single?: boolean,
+    single?: boolean | undefined,
+    page?: boolean | undefined,
 }
 
 const useStyles = createStyles({
@@ -95,6 +98,8 @@ class Gallery extends Component<IProps, any> {
 
         const {item, single, history} = this.props;
 
+        console.log(item);
+
         const {
             dialog,
             currentImageIndex
@@ -106,7 +111,11 @@ class Gallery extends Component<IProps, any> {
         const renderElements = single ? item.elements : [item.elements[0]];
 
         return(<div>
+
+                { single && <Toolbar><UniversalBackButton/></Toolbar> }
+
             <Card elevation={0} >
+
                 <CardHeader
                     title={item.entity.title}
                 />
@@ -157,12 +166,13 @@ class Gallery extends Component<IProps, any> {
                 </Dialog>
                 {
                     item && !single && <CardActions>
+                        {moment(item.created_at).format('D.M.YYYY H:mm')}
                         <Spacer/>
                         <Button
                             color={'secondary'}
                             onClick={()=>{ history.push(createLink('/item/'+item.entity_type+'/'+item.id))}}
                         >
-                            Celý článok
+                            Celý článok <ChevronRight/>
                         </Button>
                     </CardActions>
                 }

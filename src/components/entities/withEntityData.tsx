@@ -7,7 +7,8 @@ import UniversalCenteredLoader from "../UniversalCenteredLoader";
 interface IProps {
     items: any,
     itemId: number,
-    single?: boolean
+    single?: boolean | undefined,
+    page?: boolean | undefined,
 }
 
 function withEntityData(WrappedComponent: any, selectData?: any) {

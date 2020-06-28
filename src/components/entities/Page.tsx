@@ -64,10 +64,11 @@ export const Page = withEntityData((props: {item: Item}) => {
         }
         {
             displayed && displayed.map(
-                (element: Item) => <React.Fragment key={element.id}>
-                    <div style={{paddingTop:'16px'}}/>
+                (element: Item, index: number) => <React.Fragment key={element.id}>
+                    <div style={{paddingBottom: '8px'}}/>
                     {
                         element.entity_type === "article" && <Article
+                            page
                             single={single}
                             key={element.id}
                             itemId={element.id}
@@ -75,11 +76,13 @@ export const Page = withEntityData((props: {item: Item}) => {
                     }
                     {
                         element.entity_type === "gallery" && <Gallery
+                            page
                             single={single}
                             key={element.id}
                             itemId={element.id}
                         />
                     }
+                    <div style={{paddingBottom: '8px'}}/>
                 </React.Fragment>
             )
         }

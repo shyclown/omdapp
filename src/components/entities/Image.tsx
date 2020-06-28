@@ -16,6 +16,8 @@ const ImageContent = (
     const image = useRef<HTMLImageElement | null>(null);
 
     const src = getImageSrc(props.itemId, size);
+
+
 /*
     const handleLoad = () => {
         let w = image && image.current ? image.current.naturalWidth : 250;
@@ -39,6 +41,7 @@ const ImageContent = (
             style={{ maxWidth:"100%", maxHeight:"100%", borderRadius:"8px" }}
             alt={'image'}
             src={src}
+            onError={(error)=>{ console.log(error);}}
         />
     </React.Fragment>;
 
