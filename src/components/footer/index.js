@@ -19,6 +19,7 @@ import {getLinkEntities} from "../Navigation";
 import {withRouter} from "react-router";
 import createLink from "../../utils/greateLink";
 import {ChessDialogs} from "../ChessDialogs";
+import {bool} from "prop-types";
 
 
 const useStyles = makeStyles((theme) => createStyles({
@@ -44,6 +45,12 @@ const BottomBar = (props) => {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+
+    const handleClick = (item) => (event) => {
+        console.log(item);
+        props.history.push(createLink('/'+item.name))
+        setOpen(null)
+    }
 
     const infoNavigation = props.navigations && props.navigations.find(
         nav => nav.entity.name === 'sideInfoNavigation'
@@ -88,12 +95,7 @@ console.log(infoNavigation);
                         getLinkEntities(infoNavigation) || []
                     }
                     handleClose={()=>setOpen(null)}
-                    handleClick={
-                        (item)=>(e)=>{
-                            props.history.push(createLink('/'+item.name))
-                            setOpen(null)
-                        }
-                    }
+                    onClick={handleClick}
                     onClose={()=>{
                         setOpen(null)
                     }}
@@ -108,12 +110,7 @@ console.log(infoNavigation);
                     items={
                         getLinkEntities(chessNavigation) || []
                     }
-                    onClick={
-                        (item)=>(e)=>{
-                            props.history.push(createLink('/'+item.name))
-                            setOpen(null)
-                        }
-                    }
+                    onClick={handleClick}
                     handleClose={()=>setOpen(null)}
                     onClose={()=>setOpen(null)}
                     anchorOrigin={{ vertical: "top", horizontal: "center" }}

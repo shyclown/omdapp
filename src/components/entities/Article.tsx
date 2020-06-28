@@ -6,7 +6,7 @@ import withEntityData from "./withEntityData";
 import {Card, CardContent, CardHeader, Button, Toolbar} from "@material-ui/core";
 import CardActions from "@material-ui/core/CardActions";
 import Spacer from "../Space";
-import { withRouter,} from "react-router";
+import {Router, withRouter,} from "react-router";
 import createLink from "../../utils/greateLink";
 import {UniversalBackButton} from "../../universal/UniversalBackButton";
 import { ChevronRight } from "@material-ui/icons";
@@ -15,6 +15,8 @@ import { LocalLinkItem, ExternalLinkItem, LocalItem } from "./ArticleItem";
 import ReactDOM from "react-dom";
 import store from "../../utils/redux/store";
 import {Provider} from "react-redux";
+
+import history from  "./../../utils/history";
 
 export interface ArticleItem extends Item {
     entity_type: 'article';
@@ -59,19 +61,30 @@ class Article extends Component<IProps, any> {
 
     attachCustomItemContent = (root: any) => {
         const customItems = root.current.getElementsByClassName('custom');
+        const goLink = (link:string) => this.props.history.push(link);
         for (let item of customItems) {
             item.setAttribute('contenteditable', "false");
 
+
+
             if (item.dataset.elementType === 'external') {
-                ReactDOM.render(<Provider store={store}><ExternalLinkItem wrapper={item} isNew /></Provider>, item);
-            }
-            else if (
-                item.dataset.elementType === 'file' &&
-                ['jpeg','png', 'jpg'].includes(item.dataset.elementFileType.toLowerCase())
-            ){
-                ReactDOM.render(<Provider store={store}><LocalLinkItem wrapper={item}/></Provider>, item);
+                ReactDOM.render(
+                    <Router history={history}>
+                        <Provider store={store}>
+                            <ExternalLinkItem wrapper={item} goLink={goLink} />
+                        </Provider>
+                    </Router>,
+                    item
+                );
             } else {
-                ReactDOM.render(<Provider store={store}><LocalLinkItem wrapper={item}/></Provider>, item);
+                ReactDOM.render(
+                    <Router history={history}>
+                        <Provider store={store}>
+                            <LocalLinkItem wrapper={item} goLink={goLink}/>
+                        </Provider>
+                    </Router>,
+                    item
+                );
             }
         }
     }

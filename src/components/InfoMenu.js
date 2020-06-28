@@ -16,7 +16,7 @@ export const DefaultMenu = (props) =>  {
                 {
                     items && items.map(
                         (item, index) => <MenuItem
-                            onClick={() => {onClick(item);}}
+                            onClick={onClick(item)}
                             key={index}
                         >
                             {item.title}

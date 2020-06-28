@@ -2,9 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fb08ba2-1598-4317-a5cb-7338b84238ca" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/assets/logo/sachklub.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/logo/sachklub2.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/InfoMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InfoMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/entities/Article.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/entities/Article.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/entities/ArticleItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/entities/ArticleItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/entities/Image.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/entities/Image.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/footer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/top/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/top/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/history.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/history.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,17 +60,17 @@
     <property name="ts.external.directory.path" value="C:\Users\TheForce\Desktop\omdapp\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\TheForce\Desktop\omdapp\src\assets\logo" />
+      <recent name="C:\Users\TheForce\Desktop\omdapp\src\assets\images" />
+      <recent name="C:\Users\TheForce\Desktop\omdapp\src\assets" />
+      <recent name="C:\Users\TheForce\Desktop\omdapp\public\logo" />
+      <recent name="C:\Users\TheForce\Desktop\omdapp\public\assets" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\TheForce\Desktop\omdapp\src\utils\config" />
       <recent name="C:\Users\TheForce\Desktop\omdapp\src\components" />
       <recent name="C:\Users\TheForce\Desktop\omdapp\src\components\entities" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\TheForce\Desktop\omdapp\src\assets\images" />
-      <recent name="C:\Users\TheForce\Desktop\omdapp\src\assets\logo" />
-      <recent name="C:\Users\TheForce\Desktop\omdapp\src\assets" />
-      <recent name="C:\Users\TheForce\Desktop\omdapp\public\logo" />
-      <recent name="C:\Users\TheForce\Desktop\omdapp\public\assets" />
     </key>
   </component>
   <component name="RunManager" selected="npm.build:prod">
@@ -183,7 +191,7 @@
       <workItem from="1593094671209" duration="22507000" />
       <workItem from="1593183356556" duration="2747000" />
       <workItem from="1593244498789" duration="14310000" />
-      <workItem from="1593329626362" duration="5422000" />
+      <workItem from="1593329626362" duration="16338000" />
     </task>
     <task id="LOCAL-00001" summary="workspace">
       <created>1582222638727</created>
@@ -269,7 +277,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593331351033</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="article images fix">
+      <created>1593344680424</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1593344680424</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -316,13 +331,14 @@
     <MESSAGE value="fix navigation" />
     <MESSAGE value="page and gallery updates" />
     <MESSAGE value="article links" />
-    <option name="LAST_COMMIT_MESSAGE" value="article links" />
+    <MESSAGE value="article images fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="article images fix" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1006" y="170" key="CommitChangelistDialog2" timestamp="1593331350336">
+    <state x="1006" y="170" key="CommitChangelistDialog2" timestamp="1593344679838">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state x="1006" y="170" key="CommitChangelistDialog2/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1593331350336" />
+    <state x="1006" y="170" key="CommitChangelistDialog2/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1593344679838" />
     <state width="1877" height="320" key="GridCell.Tab.0.bottom" timestamp="1593120850048">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
@@ -391,10 +407,10 @@
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
     <state x="92" y="92" width="1736" height="976" key="VCS.FileHistoryDialog/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1592680643413" />
-    <state x="972" y="316" key="Vcs.Push.Dialog.v2" timestamp="1593331356314">
+    <state x="972" y="316" key="Vcs.Push.Dialog.v2" timestamp="1593344682688">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state x="972" y="316" key="Vcs.Push.Dialog.v2/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1593331356314" />
+    <state x="972" y="316" key="Vcs.Push.Dialog.v2/1920.120.1920.1040/0.0.1920.1160@0.0.1920.1160" timestamp="1593344682688" />
     <state x="235" y="405" key="com.intellij.ide.util.TipDialog" timestamp="1586873343279">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
@@ -418,7 +434,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/entities/Article.tsx</url>
-          <line>130</line>
+          <line>143</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

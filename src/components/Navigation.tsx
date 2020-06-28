@@ -103,9 +103,6 @@ const SideNavigation : React.FunctionComponent<{ navigation: NavigationItem } & 
                 onClick={() => props.history.push(createLink('/'+entity.name))}
                 key={entity.id}
             >
-
-
-
                 <ListItemText
                     primary={entity.title}
                 />
@@ -140,9 +137,9 @@ const NavigationTitle : React.FunctionComponent<{ navigations: NavigationItem[] 
     })
 
 
-    return <div>{
+    return <span>{
         title
-    }</div>
+    }</span>
 };
 
 export const NavigationTitleComponent = withRouter(NavigationTitle);

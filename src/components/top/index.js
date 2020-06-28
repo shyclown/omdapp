@@ -4,7 +4,11 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import {createStyles, isWidthDown, useTheme, withWidth} from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import IconButton from "@material-ui/core/IconButton";
+
 import logo from '../../assets/logo/logo_textless.svg';
+import chessLogo from '../../assets/logo/sachklub2.svg';
+
+
 import Drawer from '@material-ui/core/Drawer';
 import {compose} from "redux";
 import Typography from "@material-ui/core/Typography";
@@ -63,8 +67,8 @@ export const TopBar = compose(withWidth(), withRouter)((props) => {
                         <IconButton onClick={toggleDrawer('left', true)}>
                             <MenuIcon style={{color: 'white'}}/>
                         </IconButton>
-                        <img height={30} src={logo}/>
-                        <Typography style={{marginLeft: '16px'}}>SachOMD</Typography>
+                        <div style={{backgroundColor:'#002963', borderRadius:'20px',padding:'5px'}}><img height={30} src={logo}/></div>
+                        <img style={{marginLeft: '16px'}} height={30} src={chessLogo}/>
                     </Toolbar>
                     <Drawer
                         open={state.left}
@@ -78,16 +82,18 @@ export const TopBar = compose(withWidth(), withRouter)((props) => {
                 <div style={{margin: '0 auto', maxWidth: '1032px'}}>
 
                     <Toolbar classes={{root: classNames.toolbar}}>
-                        <div
-                            style={{padding:"4px", paddingRight:'16px'}}
-                            className={classNames.logo}
-                        >
-                            <img height={30} src={logo}/>
-                        </div>
-                            <Typography variant={'h5'} style={{color:'white'}}>
-                                <b>Šach OMD</b>
-                            </Typography>
-                        <Spacer/>
+
+                            <div
+                                style={{
+                                    backgroundColor:'#002963',
+                                    borderRadius:'20px',
+                                    padding:'5px'
+                                }}
+                            >
+                                <img height={30} src={logo}/>
+                            </div>
+                            <img style={{marginLeft: '16px'}} height={30} src={chessLogo}/>
+
                     </Toolbar>
 
                 </div>

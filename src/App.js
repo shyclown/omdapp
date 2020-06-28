@@ -3,7 +3,7 @@ import './App.css';
 
 import UniversalPanel from "./universal/UniversalPanel";
 import {ThemeProvider} from "@material-ui/core/styles";
-import {HashRouter as Router, Switch, Route, withRouter} from "react-router-dom";
+import {HashRouter as Router, Switch, Route, withRouter, Redirect} from "react-router-dom";
 
 import theme from './style/theme';
 import Content from "./components/content";
@@ -198,8 +198,17 @@ function App (props) {
                             }}>
                                 <Switch>
                                     {
+                                        <Redirect
+                                            exact
+                                            from={'/'}
+                                            to={'/domov'}
+                                        />
+                                    }
+                                    {
+
                                         props.navigations && props.navigations.map (
-                                            (navigation) => navigation.elements && navigation.elements.map(
+                                            (navigation) => navigation.elements &&
+                                                navigation.elements.map(
                                                 (linkItem) => (
                                                     <Route
                                                         key={linkItem.id}
@@ -217,7 +226,9 @@ function App (props) {
                                     <Route path={'/item/:itemType/:itemId'}>
                                         <Content linkItem={{}} link={'name'}/>
                                     </Route>
+
                                 </Switch>
+
                                 <SidePanel selectItem={(item) => setCurrentItem(item)}/>
                             </div>
                         </div>

@@ -5,22 +5,17 @@ import React, {useState} from "react";
 import Spacer from "../Space";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import TextField from "@material-ui/core/TextField";
-import {DialogContent, ListItem} from "@material-ui/core";
+import {ListItem} from "@material-ui/core";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import {loadItemAction} from "../../utils/redux/actions/items";
 import ImageContent from "./Image";
+import {useRouteMatch, withRouter} from "react-router";
+import createLink from "../../utils/greateLink";
 
 const mapStateToProps = (state: any) => ({});
 
-export const LocalItem = compose(
-    connect(
-        mapStateToProps,
-        {loadItemAction}
-    ))
-(
-    (props: any) => {
+const LocalItemFC = (props: any) => {
     const {
         elementType,
         elementFileType,
@@ -28,6 +23,9 @@ export const LocalItem = compose(
         externalLink,
         elementId
     } = props.wrapper.dataset;
+
+    console.log(props.wrapper);
+
     // open o creation if link
     const isOpenOnCreate = elementType === 'external' && props.isNew;
     const [edit, setEdit] = useState(isOpenOnCreate);
@@ -36,19 +34,32 @@ export const LocalItem = compose(
     const [title, setTitle] = useState(initialContent);
     const [link, setLink] = useState(initialLinkContent);
 
-
-    console.log(props.wrapper.dataset);
-
-
-    // const [placeholder] = useState(new thePlaceholder(props.wrapper));
-    // const handleMove = () => placeholder.create();
-
     return (
         <React.Fragment>
-            <Card elevation={0} style={{padding:'4px', margin:'8px 0px', backgroundColor:'#EAEAEA'}}>
-                { props.renderItem && props.renderItem() }
-                {['png', 'jpg', 'jpeg'].includes(elementFileType) ? <ImageContent itemId={elementId} size={800}/> : null}
-                <ListItem disableGutters button>
+            <Card
+                elevation={0}
+                style={{
+                    padding:'4px',
+                    margin:'8px 0px',
+                    backgroundColor:'#EAEAEA'
+                }}
+            >
+                {
+                    props.renderItem &&
+                    props.renderItem()
+                }
+                {
+                    ['png', 'jpg', 'jpeg'].includes(elementFileType) ?
+                    <ImageContent itemId={elementId} size={800}/> :
+                    null
+                }
+                <ListItem
+                    disableGutters
+                    button
+                    onClick={() => {
+                        props.goLink('/item/'+elementType+'/'+elementId)
+                    }}
+                >
                 <Grid
                     container
                     direction={'row'}
@@ -58,42 +69,44 @@ export const LocalItem = compose(
                 >
                     {
                         elementType === 'external' ?
-                            <ExitToApp style={{
-                                color: "#af3e22",
-                                marginLeft:"8px"
-                            }}/>
-                            : elementType === 'file' ?
-                                ['png', 'jpg', 'jpeg'].includes(elementFileType) ?
-                                <Image
-                                    color={'primary'}
-                                    style={{marginLeft:'8px'}}
-                                />
-                                :
-                                <Description
-                                    color={'primary'}
-                                    style={{marginLeft:'8px'}}
-                                />
-                            :
-                            <AccountTree
+                        <ExitToApp style={{
+                            color: "#af3e22",
+                            marginLeft:"8px"
+                        }}/>
+                        : elementType === 'file' ?
+                            ['png', 'jpg', 'jpeg'].includes(elementFileType) ?
+                            <Image
                                 color={'primary'}
                                 style={{marginLeft:'8px'}}
                             />
+                            :
+                            <Description
+                                color={'primary'}
+                                style={{marginLeft:'8px'}}
+                            />
+                        :
+                        <AccountTree
+                            color={'primary'}
+                            style={{marginLeft:'8px'}}
+                        />
                     }
                     <Typography
-                        style={ elementType !== 'external' ? {
-                            marginLeft:'8px',
-                            padding:'4px'
-                        }: {
-                            color: "#af3e22",
-                            marginLeft:'8px',
-                            padding:"4px"
-                        }}
+                        style={
+                            elementType !== 'external' ? {
+                                marginLeft:'8px',
+                                padding:'4px'
+                            } : {
+                                color: "#af3e22",
+                                marginLeft:'8px',
+                                padding:"4px"
+                            }
+                        }
                     >
                         {elementType}
+                        {elementId}
                         {title}
                     </Typography>
                     <Spacer/>
-
                     <IconButton
                         style={{marginRight:'4px'}}
                         size={'small'}
@@ -107,11 +120,30 @@ export const LocalItem = compose(
             </Card>
         </React.Fragment>
     );
-})
+}
+
+export const LocalItem = compose(
+    withRouter,
+    connect(
+        mapStateToProps,
+        {loadItemAction}
+    )
+)(LocalItemFC) as React.FunctionComponent<{
+    wrapper: any,
+    renderItem?:any,
+    goLink?: (atr: string) => any
+}>;
 
 export const LocalLinkItem = (props: any) => {
-    return (<LocalItem wrapper={props.wrapper} renderItem={()=>{}} />);
+    return <LocalItem
+        wrapper={props.wrapper}
+        goLink={props.goLink}
+        renderItem={()=>{}}
+    />;
 }
 export const ExternalLinkItem = (props: any) => {
-    return (<LocalItem wrapper={props.wrapper} />);
+    return <LocalItem
+        goLink={props.goLink}
+        wrapper={props.wrapper}
+    />;
 }
