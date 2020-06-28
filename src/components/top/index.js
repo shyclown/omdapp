@@ -67,8 +67,27 @@ export const TopBar = compose(withWidth(), withRouter)((props) => {
                         <IconButton onClick={toggleDrawer('left', true)}>
                             <MenuIcon style={{color: 'white'}}/>
                         </IconButton>
-                        <div style={{backgroundColor:'#002963', borderRadius:'20px',padding:'5px'}}><img height={30} src={logo}/></div>
-                        <img style={{marginLeft: '16px'}} height={30} src={chessLogo}/>
+                        <div
+                            style={{
+                                backgroundColor:'#002963',
+                                borderRadius:'23px',
+                                padding:'8px',
+                                width:'46px',
+                                height: '46px',
+                                boxSizing:'border-box'
+                            }}
+                        >
+                            <img
+                                height={30}
+                                width={30}
+                                src={logo}
+                            />
+                        </div>
+                        <img
+                            style={{marginLeft: '16px'}}
+                            height={30}
+                            src={chessLogo}
+                        />
                     </Toolbar>
                     <Drawer
                         open={state.left}
@@ -83,16 +102,27 @@ export const TopBar = compose(withWidth(), withRouter)((props) => {
 
                     <Toolbar classes={{root: classNames.toolbar}}>
 
-                            <div
-                                style={{
-                                    backgroundColor:'#002963',
-                                    borderRadius:'20px',
-                                    padding:'5px'
-                                }}
-                            >
-                                <img height={30} src={logo}/>
-                            </div>
-                            <img style={{marginLeft: '16px'}} height={30} src={chessLogo}/>
+                        <div
+                            style={{
+                                backgroundColor:'#002963',
+                                borderRadius:'23px',
+                                padding:'8px',
+                                width:'46px',
+                                height: '46px',
+                                boxSizing:'border-box'
+                            }}
+                        >
+                            <img
+                                height={30}
+                                width={30}
+                                src={logo}
+                            />
+                        </div>
+                        <img
+                            style={{marginLeft: '16px'}}
+                            height={30}
+                            src={chessLogo}
+                        />
 
                     </Toolbar>
 

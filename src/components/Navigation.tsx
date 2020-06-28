@@ -34,6 +34,8 @@ const TopNavigation :
                 const path = '/'+entity.name;
 
                 return <Button
+                    style={{marginRight: '8px'}}
+                    disableElevation
                     variant={currentPath === path ? "contained" : undefined}
                     color={currentPath === path ? "secondary" : undefined}
                     key={entity.name}
