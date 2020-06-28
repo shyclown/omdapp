@@ -16,6 +16,7 @@ const ImageContent = (
     const image = useRef<HTMLImageElement | null>(null);
 
     const src = getImageSrc(props.itemId, size);
+    console.log(src);
 
 
 /*

@@ -1,4 +1,4 @@
-import {ExitToApp, KeyboardReturn, RateReview, AccountTree, Launch} from "@material-ui/icons";
+import {ExitToApp, KeyboardReturn, RateReview, AccountTree, Launch, Description, Image} from "@material-ui/icons";
 import IconButton from "@material-ui/core/IconButton";
 import Card from "@material-ui/core/Card";
 import React, {useState} from "react";
@@ -10,6 +10,7 @@ import {DialogContent, ListItem} from "@material-ui/core";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import {loadItemAction} from "../../utils/redux/actions/items";
+import ImageContent from "./Image";
 
 const mapStateToProps = (state: any) => ({});
 
@@ -22,8 +23,10 @@ export const LocalItem = compose(
     (props: any) => {
     const {
         elementType,
+        elementFileType,
         title: initialTitle,
         externalLink,
+        elementId
     } = props.wrapper.dataset;
     // open o creation if link
     const isOpenOnCreate = elementType === 'external' && props.isNew;
@@ -34,13 +37,17 @@ export const LocalItem = compose(
     const [link, setLink] = useState(initialLinkContent);
 
 
+    console.log(props.wrapper.dataset);
+
+
     // const [placeholder] = useState(new thePlaceholder(props.wrapper));
     // const handleMove = () => placeholder.create();
 
     return (
         <React.Fragment>
-            <Card style={{padding:'4px', margin:'4px 0px'}}>
+            <Card elevation={0} style={{padding:'4px', margin:'8px 0px', backgroundColor:'#EAEAEA'}}>
                 { props.renderItem && props.renderItem() }
+                {['png', 'jpg', 'jpeg'].includes(elementFileType) ? <ImageContent itemId={elementId} size={800}/> : null}
                 <ListItem disableGutters button>
                 <Grid
                     container
@@ -55,6 +62,17 @@ export const LocalItem = compose(
                                 color: "#af3e22",
                                 marginLeft:"8px"
                             }}/>
+                            : elementType === 'file' ?
+                                ['png', 'jpg', 'jpeg'].includes(elementFileType) ?
+                                <Image
+                                    color={'primary'}
+                                    style={{marginLeft:'8px'}}
+                                />
+                                :
+                                <Description
+                                    color={'primary'}
+                                    style={{marginLeft:'8px'}}
+                                />
                             :
                             <AccountTree
                                 color={'primary'}
