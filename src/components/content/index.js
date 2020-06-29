@@ -19,6 +19,8 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogActions from "@material-ui/core/DialogActions";
 import Spacer from "../Space";
 import Button from "@material-ui/core/Button";
+import ShowImage from "../entities/ShowImage";
+import ImageContent from "../entities/Image";
 
 const styles = (theme) => createStyles({
     divider: {
@@ -104,6 +106,7 @@ class Content extends Component {
             {itemType === 'page' && <Page key={itemId} itemId={itemId}/>}
             {itemType === 'article' && <Article single={true} key={itemId} itemId={itemId}/>}
             {itemType === 'gallery' && <Gallery single={true} key={itemId} itemId={itemId}/>}
+            {itemType === 'file' && <ImageContent single={true} key={itemId} itemId={itemId} size={1068}/>}
         </div>
 
     }

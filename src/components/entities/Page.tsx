@@ -4,6 +4,7 @@ import React, {useEffect, useState} from "react";
 import { Item } from "../../utils/types/ItemType";
 import Pagination from "../Pagination";
 import Article from "./Article";
+import ImageContent from "./Image";
 
 
 export const Page = withEntityData((props: {item: Item}) => {
@@ -80,6 +81,13 @@ export const Page = withEntityData((props: {item: Item}) => {
                             single={single}
                             key={element.id}
                             itemId={element.id}
+                        />
+                    }
+                    {
+                        element.entity_type === "file" && <ImageContent
+                            key={element.id}
+                            itemId={element.id}
+                            size={1068}
                         />
                     }
                     <div style={{paddingBottom: '8px'}}/>

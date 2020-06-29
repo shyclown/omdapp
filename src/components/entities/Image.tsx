@@ -4,7 +4,7 @@ import UniversalCenteredLoader from "../UniversalCenteredLoader";
 
 export {};
 const ImageContent = (
-    props: PropsWithChildren<{itemId: number, size: number, square?: boolean}>
+    props: PropsWithChildren<{itemId: number, size: number, square?: boolean, width?: string}>
 ) => {
 
     const size = props.size || 800;
@@ -39,7 +39,7 @@ const ImageContent = (
             ref={image}
             onLoad={() => {setLoaded(true)}}
             loading={'lazy'}
-            style={{ maxWidth:"100%", maxHeight:"100%", borderRadius:"8px" }}
+            style={{ maxWidth:"100%", maxHeight:"100%", width: props.width || '', borderRadius:"8px" }}
             alt={'image'}
             src={src}
             onError={(error)=>{ console.log(error);}}
