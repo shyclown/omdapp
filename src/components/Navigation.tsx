@@ -27,25 +27,27 @@ const TopNavigation :
     return <Grid
         container
         direction={"row"}
-    >{
-        linkEntities &&
-        linkEntities.map(
-            (entity : LinkEntity) => {
-                const path = '/'+entity.name;
+    >
+        {
+            linkEntities &&
+            linkEntities.map(
+                (entity : LinkEntity) => {
+                    const path = '/'+entity.name;
 
-                return <Button
-                    style={{marginRight: '8px'}}
-                    disableElevation
-                    variant={currentPath === path ? "contained" : undefined}
-                    color={currentPath === path ? "secondary" : undefined}
-                    key={entity.name}
-                    onClick={() => props.history.push(createLink('/'+entity.name))}
-                >{
-                    entity.title
-                }</Button>
-            }
-        )
-    }</Grid>
+                    return <Button
+                        style={{marginRight: '8px'}}
+                        disableElevation
+                        variant={currentPath === path ? "contained" : undefined}
+                        color={currentPath === path ? "secondary" : undefined}
+                        key={entity.name}
+                        onClick={() => props.history.push(createLink('/'+entity.name))}
+                    >{
+                        entity.title
+                    }</Button>
+                }
+            )
+        }
+    </Grid>
 }
 
 export const TopNavigationComponent = withRouter(TopNavigation);
