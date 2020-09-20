@@ -39,7 +39,12 @@ const ImageContent = (
             ref={image}
             onLoad={() => {setLoaded(true)}}
             loading={'lazy'}
-            style={{ maxWidth:"100%", maxHeight:"100%", width: props.width || '', borderRadius:"8px" }}
+            style={{
+                maxWidth:"100%",
+                maxHeight:"100%",
+                width: props.width || '',
+                borderRadius:"8px"
+            }}
             alt={'image'}
             src={src}
             onError={(error)=>{ console.log(error);}}
