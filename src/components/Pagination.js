@@ -73,6 +73,7 @@ class Pagination extends Component {
                     }
                 }}
                 onChangeRowsPerPage={ this.handleChangeRowsPerPage }
+                labelRowsPerPage={ this.props.labelRowsPerPage || null }
                 labelDisplayedRows={
                     this.labelDisplayedRows
                 }

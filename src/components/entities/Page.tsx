@@ -37,10 +37,24 @@ export const Page = withEntityData((props: {item: Item}) => {
 
     const single = !(props?.item?.elements?.length > 1);
 
+
     const renderPagination = () => {
+
+        const total = props.item.elements.length;
         return (
             !single ?
             <Pagination
+                labelDisplayedRows = {({from, to, count}: any) => {
+
+                        if (+perPage === +total) {
+                            return (total + ' z ' + total)
+                        } else {
+                            return (from + ' - ' + to + ' z ' + count)
+                        }
+
+                    }
+                }
+                labelRowsPerPage={ "Počet príspevkov na stránke:" }
                 total={props.item.elements.length}
                 perPage={perPage}
                 page={page}
